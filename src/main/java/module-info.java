@@ -1,7 +1,7 @@
-module com.mycompany.pruebaproyecto2p {
+module com.pooespol.proyecto_2p_poo {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.mycompany.pruebaproyecto2p to javafx.fxml;
-    exports com.mycompany.pruebaproyecto2p;
+    opens com.pooespol.proyecto_2p_poo to javafx.fxml;
+    exports com.pooespol.proyecto_2p_poo;
 }

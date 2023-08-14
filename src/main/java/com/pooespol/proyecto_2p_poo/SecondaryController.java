@@ -1,4 +1,4 @@
-package com.mycompany.pruebaproyecto2p;
+package com.pooespol.proyecto_2p_poo;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
