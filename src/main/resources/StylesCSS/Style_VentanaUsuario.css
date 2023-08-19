@@ -1,0 +1,5 @@
+
+.root{
+    -fx-background-image: url("/Pictures/Background_VentanaUsuario.png");
+    -fx-background-size:cover;
+}

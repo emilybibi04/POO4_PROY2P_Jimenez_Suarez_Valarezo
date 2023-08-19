@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_VentanaUsuario.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.VentanaUsuarioController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="319.0" prefWidth="1240.0">
+         <children>
+            <Label fx:id="lblBienvenido" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="602.0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="DM Sans Regular" size="70.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNombre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="635.0" textFill="WHITE">
+               <font>
+                  <Font name="Bogart Trial Bold" size="130.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="-50.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="226.0" prefWidth="1240.0" spacing="330.0">
+         <children>
+            <Button fx:id="btnLocales" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" style="-fx-background-color: white;" text="Nuestros locales" textFill="#c87777">
+               <font>
+                  <Font name="Avenir Next Bold" size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnPedido" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" style="-fx-background-color: white;" text="Haz tu pedido" textFill="#c87777">
+               <font>
+                  <Font name="Avenir Next Bold" size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

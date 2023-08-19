@@ -1,0 +1,11 @@
+
+.root{
+    -fx-background-image: url("/Pictures/Background_Ubicaciones.png");
+    -fx-background-size:cover;
+}
+
+.button{
+    -fx-background-image: url("/Pictures/Logo_Posicion.png");
+    -fx-background-color:clear;
+    -fx-background-size:cover;
+}
