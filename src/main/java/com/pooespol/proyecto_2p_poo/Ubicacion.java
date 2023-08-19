@@ -10,10 +10,6 @@ import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-/**
- *
- * @author emilyvalarezo
- */
 public class Ubicacion {
     
     private double coordenadaX;    
