@@ -66,8 +66,6 @@ public class Ubicacion {
         ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
         ArrayList<Ubicacion> ubicaciones = new ArrayList<>();
 
-        
-        
         for (String line : lineas){
             String[] elemento = line.trim().split(",");
             double coorX = Double.parseDouble(elemento[0]);
@@ -78,7 +76,6 @@ public class Ubicacion {
         }
         
         return ubicaciones;
-        
     }
      
 }

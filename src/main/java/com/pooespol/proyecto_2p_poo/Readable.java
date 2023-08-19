@@ -15,7 +15,9 @@ import java.util.ArrayList;
 public interface Readable {
     
     static ArrayList<String> leerArchivo(String nombreArchivo){
+        
         ArrayList<String> lineas = new ArrayList<>();
+        
         //Lectura del archivo y obtencion de informacion (se agrega en el Array)
         File archivo = null;
         FileReader fr = null;
