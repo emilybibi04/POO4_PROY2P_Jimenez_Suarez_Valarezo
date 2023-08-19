@@ -5,32 +5,42 @@
 package com.pooespol.proyecto_2p_poo;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public interface Readable {
     
-    ArrayList<String> lineas = new ArrayList<String>();
-    
-    default ArrayList<String> leerArchivo(String nombreArchivo){
-        
+    static ArrayList<String> leerArchivo(String nombreArchivo){
+        ArrayList<String> lineas = new ArrayList<>();
         //Lectura del archivo y obtencion de informacion (se agrega en el Array)
-        try(BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo))){
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            archivo = new File(nombreArchivo);
+            fr = new FileReader(archivo,StandardCharsets.UTF_8);
+            br = new BufferedReader(fr);
+
             String linea;
-            while((linea = lector.readLine())!=null){
+            while ((linea = br.readLine()) != null){
                 lineas.add(linea);
-                System.out.println(linea);
             }
-            
-        //Excepciones
-        }catch(FileNotFoundException e1){
-            System.out.println("Archivo no encontrado");
-        } catch(IOException e2){
-            System.out.println("Error de entrada/salida");
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fr){
+                    fr.close();
+                }
+            } catch (Exception e2){
+                e2.printStackTrace();
+            }
         }
-        
         return lineas;
     }
     

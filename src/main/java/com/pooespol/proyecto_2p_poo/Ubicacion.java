@@ -62,34 +62,11 @@ public class Ubicacion {
     }
     
     public static ArrayList<Ubicacion> objetoUbicaciones(String nombrearchivo){
-    
-        ArrayList<String> lineas = new ArrayList<>();
+        
+        ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
         ArrayList<Ubicacion> ubicaciones = new ArrayList<>();
 
-        File archivo = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-
-        try {
-            archivo = new File(nombrearchivo);
-            fr = new FileReader(archivo,StandardCharsets.UTF_8);
-            br = new BufferedReader(fr);
-
-            String linea;
-            while ((linea = br.readLine()) != null){
-                lineas.add(linea);
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            try {
-                if (null != fr){
-                    fr.close();
-                }
-            } catch (Exception e2){
-                e2.printStackTrace();
-            }
-        }
+        
         
         for (String line : lineas){
             String[] elemento = line.trim().split(",");
@@ -103,6 +80,6 @@ public class Ubicacion {
         return ubicaciones;
         
     }
-    
+     
 }
 
