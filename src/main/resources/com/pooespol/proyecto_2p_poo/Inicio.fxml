@@ -3,12 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_Inicio.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_Inicio.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.InicioController">
    <children>
       <VBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="623.0">
          <children>
@@ -58,7 +59,10 @@
                         <Font name="Avenir Next Bold" size="26.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textUsuario" prefHeight="42.0" prefWidth="255.0" />
+                  <TextField fx:id="textUsuario" prefHeight="42.0" prefWidth="255.0">
+                     <font>
+                        <Font name="DM Sans Regular" size="20.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="423.0" spacing="15.0">
@@ -68,10 +72,10 @@
                         <Font name="Avenir Next Bold" size="26.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textClave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="255.0" />
+                  <PasswordField fx:id="PasswordF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="255.0" />
                </children>
             </HBox>
-            <Button fx:id="btnIniciar" mnemonicParsing="false" prefHeight="53.0" prefWidth="178.0" style="-fx-background-color: white;" text="Iniciar Sesión" textFill="#71945f">
+            <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#switchVentanaUsuario" prefHeight="53.0" prefWidth="178.0" style="-fx-background-color: white;" text="Iniciar Sesión" textFill="#71945f">
                <font>
                   <Font name="Avenir Next Bold" size="20.0" />
                </font>

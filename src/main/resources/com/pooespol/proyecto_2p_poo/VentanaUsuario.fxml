@@ -28,7 +28,7 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="226.0" prefWidth="1240.0" spacing="330.0">
          <children>
-            <Button fx:id="btnLocales" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" style="-fx-background-color: white;" text="Nuestros locales" textFill="#c87777">
+            <Button fx:id="btnLocales" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchUbicaciones" prefHeight="60.0" prefWidth="266.0" style="-fx-background-color: white;" text="Nuestros locales" textFill="#c87777">
                <font>
                   <Font name="Avenir Next Bold" size="28.0" />
                </font>

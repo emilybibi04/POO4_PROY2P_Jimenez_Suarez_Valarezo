@@ -2,12 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.pooespol.proyecto_2p_poo;
+package Modelo;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class Ubicacion {
@@ -24,6 +20,7 @@ public class Ubicacion {
         this.horario = horario;
     }
     
+    //Getters y Setters
     public double getCoorX(){
         return coordenadaX;
     }
@@ -76,10 +73,6 @@ public class Ubicacion {
         }
         
         return ubicaciones;
-    }
-     
-    public static void main(String[] args){
-        System.out.println(objetoUbicaciones("locales.txt"));
     }
     
 }

@@ -2,17 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.pooespol.proyecto_2p_poo;
+package Modelo;
 
-public class Toppings {
+public class Base {
     
-    double precio;
-    String nombreTopping;
+    private double precio;
+    private String nombreBase;
     
     //Constructor de la clase
-    public void Topping(double precio, String nombreTopping){
+    public void Base(double precio, String nombreBase){
         this.precio = precio;
-        this.nombreTopping = nombreTopping;
+        this.nombreBase = nombreBase;
     }
     
     //Getters y setters
@@ -24,12 +24,12 @@ public class Toppings {
         return this.precio;
     }
 
-    public String getNombreTopping() {
-        return nombreTopping;
+    public String getNombreBase() {
+        return nombreBase;
     }
 
-    public void setNombreTopping(String nombreTopping) {
-        this.nombreTopping = nombreTopping;
+    public void setNombreSabor(String nombreBase) {
+        this.nombreBase = nombreBase;
     }
     
 }
