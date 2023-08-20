@@ -58,7 +58,7 @@ public class Ubicacion {
     
     @Override
     public String toString(){
-        return coordenadaX + " " + coordenadaY + " " + nombre + " " + horario;
+        return getCoorX() + " " + coordenadaY + " " + nombre + " " + horario;
     }
     
     public static ArrayList<Ubicacion> objetoUbicaciones(String nombrearchivo){
@@ -78,5 +78,9 @@ public class Ubicacion {
         return ubicaciones;
     }
      
+    public static void main(String[] args){
+        System.out.println(objetoUbicaciones("locales.txt"));
+    }
+    
 }
 

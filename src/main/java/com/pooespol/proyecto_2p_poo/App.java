@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 public class App extends Application {
 
     private static Scene scene;
+    public static String path = "src/main/resources/Pictures/";
     
     public void start(Stage s) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Ubicaciones.fxml"));
