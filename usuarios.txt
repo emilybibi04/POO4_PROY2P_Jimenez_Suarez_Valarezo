@@ -3,7 +3,7 @@ Carlos,m,carlos_r,sEcure123
 Laura,f,laura_m,sunShine22
 Javier,m,javierp,blueSky789
 María,f,marial,purpleRain$4
-Andrés,m,andres_f,greenApple5!
+Andrés,m,andres_f,greenApple5
 Patricia,f,patricia_s,0ceanWave67
 Juan,m,juanr,moUntainHiker8
 Sofía,f,sofia_t,butTerfly$1

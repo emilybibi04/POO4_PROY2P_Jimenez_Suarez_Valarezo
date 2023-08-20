@@ -75,4 +75,13 @@ public class Usuario {
         return usuarios;
     }
     
+    public static boolean comprobarUsuario(String user, String pass, ArrayList<Usuario> lista) {
+        for (Usuario u : lista) {
+            if (u.getUser().equals(user) && u.getPassword().equals(pass)) {
+                return true; // Usuario encontrado, retorna true
+            }
+        }
+        return false; // Usuario no encontrado, retorna false
+    }
+    
 }

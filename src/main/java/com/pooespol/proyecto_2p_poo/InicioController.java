@@ -26,17 +26,28 @@ public class InicioController implements Initializable {
     @FXML
     Label lblValidar;
     
+    static ArrayList<Usuario> usuariosRegistrados = new ArrayList<>();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        ArrayList <Usuario> usuarios = Usuario.objetoUsuarios("usuarios.txt");
-        
-        
+         
     }    
     
     @FXML
     private void switchVentanaUsuario() throws IOException {
-        App.setRoot("VentanaUsuario");
+        
+        usuariosRegistrados = Usuario.objetoUsuarios("usuarios.txt");
+        String user = textUsuario.getText();
+        String pass = PasswordF.getText();
+        boolean validar = Usuario.comprobarUsuario(user, pass, usuariosRegistrados);
+        if(validar){
+            App.setRoot("VentanaUsuario");
+        }
+        else {
+            lblValidar.setText("Usuario o Contraseña Incorrecta");
+            textUsuario.clear();
+            PasswordF.clear();
+        }
     }
     
     
