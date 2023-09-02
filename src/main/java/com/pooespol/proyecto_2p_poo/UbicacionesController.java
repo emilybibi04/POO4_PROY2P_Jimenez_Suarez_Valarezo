@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -36,9 +37,26 @@ public class UbicacionesController implements Initializable {
         
         ArrayList<Ubicacion> locales = Ubicacion.objetoUbicaciones("locales.txt");
         
-        for(Ubicacion u : locales){
-            ImageView i = new ImageView();
-            try(FileInputStream input = new FileInputStream(App.path + "Logo_Posicion.png")){
+        Thread thread = new Thread(() -> {
+            for (Ubicacion u : locales) {
+                int retraso = new Random().nextInt(10) + 1; // Genera un número aleatorio entre 1 y 10 segundos
+
+                try {
+                    Thread.sleep(retraso * 1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                Platform.runLater(() -> mostrarDetallesUbicacion(u));
+            }
+        });
+
+        thread.start();
+    }  
+    
+    private void mostrarDetallesUbicacion(Ubicacion u) {
+        ImageView i = new ImageView();
+        try(FileInputStream input = new FileInputStream(App.path + "Logo_Posicion.png")){
             Image image = new Image(input, 68, 50, false, false);
             i.setImage(image);
             
@@ -145,11 +163,9 @@ public class UbicacionesController implements Initializable {
                 }
             });
             
-            } catch (IOException e){
+        } catch (IOException e){
                 System.out.println("No se encuentra la imagen");
-            }
-            
         }
-    }     
+    }
     
 }
