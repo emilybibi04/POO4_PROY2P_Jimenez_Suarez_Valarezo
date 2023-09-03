@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane fx:id="paneUbicaciones" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_Ubicaciones.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.UbicacionesController">
    <children>
-      <Button fx:id="btnCerrarr" layoutX="1086.0" layoutY="614.0" mnemonicParsing="false" onAction="#close" prefHeight="59.0" prefWidth="126.0" style="-fx-background-color: white;" text="Cerrar" textFill="#c87777">
+      <Button fx:id="btnCerrarr" layoutX="920.0" layoutY="614.0" mnemonicParsing="false" onAction="#close" prefHeight="59.0" prefWidth="292.0" style="-fx-background-color: white;" text="Regresar al Menú" textFill="#c87777">
          <font>
             <Font name="Avenir Next Bold" size="28.0" />
          </font>
