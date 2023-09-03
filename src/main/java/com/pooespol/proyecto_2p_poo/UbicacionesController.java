@@ -38,23 +38,27 @@ public class UbicacionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        ArrayList<Ubicacion> locales = Ubicacion.objetoUbicaciones(App.pathI + "locales.txt");
-        
-        Thread thread = new Thread(() -> {
-            for (Ubicacion u : locales) {
-                int retraso = new Random().nextInt(10) + 1; // Genera un número aleatorio entre 1 y 10 segundos
-
-                try {
-                    Thread.sleep(retraso * 1000); 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        try {
+            ArrayList<Ubicacion> locales = Ubicacion.objetoUbicaciones(App.pathI + "locales.txt");
+            
+            Thread thread = new Thread(() -> {
+                for (Ubicacion u : locales) {
+                    int retraso = new Random().nextInt(10) + 1; // Genera un número aleatorio entre 1 y 10 segundos
+                    
+                    try {
+                        Thread.sleep(retraso * 1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    Platform.runLater(() -> mostrarDetallesUbicacion(u));
                 }
-
-                Platform.runLater(() -> mostrarDetallesUbicacion(u));
-            }
-        });
-
-        thread.start();
+            });
+            
+            thread.start();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         
     }  
     

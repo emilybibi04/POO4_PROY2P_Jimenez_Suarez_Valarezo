@@ -2,30 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package com.mycompany.opcion2_proyecto2p;
+package com.pooespol.proyecto_2p_poo;
 
+
+import Modelo.IncompleteStageException;
+import static Modelo.Readable.leerArchivo;
+import Modelo.Sabores;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import modelo.Sabores;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author gabsjimz
  */
-public class Paso2Controller implements Initializable, Readable{
+public class Paso2Controller implements Initializable{
 
     @FXML
     private VBox root;
@@ -47,10 +54,17 @@ public class Paso2Controller implements Initializable, Readable{
     private Label lbAcumulador;
     @FXML
     private Button btnContinuar2;
-    @FXML
-    private HBox hbxDinamico;
     
-    private ArrayList<Sabores> saboresSelecc = null;
+    private double total= 0.0;
+    
+    private Sabores sabor1 =null;
+    
+    private Sabores sabor2 =null;
+    
+    private ArrayList<String> datosSabores;
+    
+    @FXML
+    private Label errorLabel2;
     /**
      * Initializes the controller class.
      */
@@ -59,22 +73,28 @@ public class Paso2Controller implements Initializable, Readable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
-        //agregar sabores al combo
+        try {
+            // TODO
+            datosSabores = Sabores.lineaSabores(App.pathI+"sabores.txt");
+           
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+         //agregar sabores al combo
+            
         agregarSaboresCombo(cmb2, cmb1);
-        //valor por defecto
-        cmb1.getSelectionModel().selectFirst();
-        cmb2.getSelectionModel().selectFirst();
-        //Agregar valor de sabor al total
-        
+        lbAcumulador.setText("Valor a pagar: " + App.total);
+            
+        cmb1.setOnAction(this::obtenerPrecio);
+        cmb2.setOnAction(this::obtenerPrecio);
     }    
     
     
     //Obtener Sabores
     public ArrayList<Sabores> obtenerSabores(){
         //Obtener información de los archivos
-        ArrayList<String> datosSabores = leerArchivo(App.archSabores);
+        
+        System.out.println(datosSabores);
         ArrayList<Sabores> arregloSabores = new ArrayList<>();
         
         for(String linea:datosSabores){
@@ -94,21 +114,53 @@ public class Paso2Controller implements Initializable, Readable{
     }
     
     //Obtener precios
-    public double obtenerPrecio(ComboBox<Sabores> cmb1){
-        Sabores saborA = cmb1.getValue();
-        if(saborA != null){
-            
-        }
-        return App.total;
-    }
-    
-
     @FXML
-    private void cambiarAPaso3(ActionEvent event) {
+    public void obtenerPrecio(ActionEvent event){
         
+        errorLabel2.setText("");
+        
+        Sabores saborA = cmb1.getValue();
+        Sabores saborB = cmb2.getValue();
+        
+        double ntotal=0.00;
+
+        if (saborA != null) {
+            ntotal += saborA.getPrecio();
+        }
+
+        if (saborB != null) {
+            ntotal += saborB.getPrecio();
+        }
+
+        lbAcumulador.setText("Valor a pagar: " + (App.total+ntotal));
+        total= App.total+ntotal;
     }
 
     @FXML
-    private void sumarTotalS(ActionEvent event) {
+    private void cambiarAPaso3(ActionEvent event) throws IOException,IncompleteStageException{
+        if (total == 0.00) {
+            try {
+                throw new IncompleteStageException("Debe elegir al menos una opción para continuar.");
+            } catch (IncompleteStageException e) {
+                errorLabel2.setText(e.getMessage());
+            }
+        } else {
+//            
+            sabor1 = cmb1.getValue();
+            sabor2 = cmb2.getValue();
+            App.saboreshelado.add(sabor1);
+            App.saboreshelado.add(sabor2);
+            App.total=total;
+            
+            System.out.println(App.saboreshelado);
+            System.out.println(App.total);
+
+
+            try {
+                App.setRoot("Paso3");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

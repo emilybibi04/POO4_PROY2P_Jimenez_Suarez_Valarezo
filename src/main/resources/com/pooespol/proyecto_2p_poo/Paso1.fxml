@@ -13,10 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="452.0" prefWidth="747.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.opcion2_proyecto2p.Paso1Controller">
-    <stylesheets>
-        <URL value="@/styles/opcion2.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="452.0" prefWidth="747.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.Paso1Controller">
    <children>
       <VBox fx:id="root2" layoutX="101.0" layoutY="27.0" prefHeight="452.0" prefWidth="754.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -32,37 +29,40 @@
                   </Text>
                </children>
             </HBox>
-            <HBox fx:id="hbxBtns" alignment="BOTTOM_CENTER" onMouseClicked="#agregarValor" prefHeight="153.0" prefWidth="754.0">
+            <HBox fx:id="hbxBtns" alignment="BOTTOM_CENTER" prefHeight="153.0" prefWidth="754.0">
                <children>
-                  <Button fx:id="btnYogurt" mnemonicParsing="false" onMouseClicked="#agregarValor" prefHeight="86.0" prefWidth="135.0" wrapText="true" />
-                  <Button fx:id="btnHelado" mnemonicParsing="false" onMouseClicked="#agregarValor" prefHeight="86.0" prefWidth="135.0" wrapText="true">
+                  <Button fx:id="btnYogurt" mnemonicParsing="false" onAction="#seleccionarBoton" prefHeight="86.0" prefWidth="135.0" text="yogurt" wrapText="true" />
+                  <Button fx:id="btnHelado" mnemonicParsing="false" onAction="#seleccionarBoton" prefHeight="86.0" prefWidth="135.0" text="helado" wrapText="true">
                      <HBox.margin>
                         <Insets left="60.0" right="60.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnVegano" mnemonicParsing="false" onMouseClicked="#agregarValor" prefHeight="86.0" prefWidth="135.0" />
+                  <Button fx:id="btnVegano" mnemonicParsing="false" onAction="#seleccionarBoton" prefHeight="86.0" prefWidth="135.0" text="vegano" />
                </children>
             </HBox>
             <HBox fx:id="hboxPrecios" alignment="CENTER" prefHeight="35.0" prefWidth="754.0">
                <children>
-                  <Label fx:id="lbPrecioYogurt" text="label">
+                  <Label fx:id="lbPrecioYogurt" text="1.50">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbPrecioHelado" alignment="CENTER" prefHeight="17.0" prefWidth="363.0" text="label">
+                  <Label fx:id="lbPrecioHelado" alignment="CENTER" prefHeight="17.0" prefWidth="363.0" text="2.00">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbPrecioVegano" text="label">
+                  <Label fx:id="lbPrecioVegano" text="2.50">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox fx:id="hbxDinamico" prefHeight="62.0" prefWidth="754.0" />
+            <HBox fx:id="hbxDinamico" alignment="CENTER" prefHeight="62.0" prefWidth="754.0">
+               <children>
+                  <Label fx:id="errorLabel" />
+               </children></HBox>
          </children>
       </VBox>
       <GridPane fx:id="gridAcu_Cont" alignment="BOTTOM_LEFT" layoutX="7.0" layoutY="365.0" prefHeight="58.0" prefWidth="747.0">
@@ -74,7 +74,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="lbAcumulador" alignment="CENTER" prefHeight="17.0" prefWidth="265.0" text="Valor a pagar: ">
+            <Label fx:id="lbAcumulador" alignment="CENTER" prefHeight="17.0" prefWidth="265.0" text="Valor a pagar:  0.0">
                <font>
                   <Font size="15.0" />
                </font>

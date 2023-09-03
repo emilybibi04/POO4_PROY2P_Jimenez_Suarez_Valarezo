@@ -4,13 +4,16 @@
  */
 package Modelo;
 
-public class Sabores {
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Sabores implements Comparable<Sabores>{
     
     double precio;
     String nombreSabor;
     
     //Constructor de la clase
-    public void Sabores(double precio, String nombreSabor){
+    public Sabores(String nombreSabor, double precio){
         this.precio = precio;
         this.nombreSabor = nombreSabor;
     }
@@ -30,6 +33,24 @@ public class Sabores {
 
     public void setNombreSabor(String nombreSabor) {
         this.nombreSabor = nombreSabor;
+    }
+    
+    //sobreescritura equalsTo()
+    @Override
+    public int compareTo(Sabores s){
+        return this.nombreSabor.compareTo(s.nombreSabor);
+    }
+    
+    @Override
+    public String toString(){
+        return this.nombreSabor+"-"+this.precio;
+    }
+    
+    public static ArrayList<String> lineaSabores(String nombrearchivo) throws IOException{
+        
+        ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
+        
+        return lineas;
     }
     
 }

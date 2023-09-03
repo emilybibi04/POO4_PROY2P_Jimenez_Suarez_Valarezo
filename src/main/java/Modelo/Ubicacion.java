@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Ubicacion {
@@ -58,7 +59,7 @@ public class Ubicacion {
         return getCoorX() + " " + coordenadaY + " " + nombre + " " + horario;
     }
     
-    public static ArrayList<Ubicacion> objetoUbicaciones(String nombrearchivo){
+    public static ArrayList<Ubicacion> objetoUbicaciones(String nombrearchivo) throws IOException{
         
         ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
         ArrayList<Ubicacion> ubicaciones = new ArrayList<>();

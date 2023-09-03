@@ -4,13 +4,17 @@
  */
 package Modelo;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Base {
     
     private double precio;
     private String nombreBase;
+
     
     //Constructor de la clase
-    public void Base(double precio, String nombreBase){
+    public Base(String nombreBase, double precio){
         this.precio = precio;
         this.nombreBase = nombreBase;
     }
@@ -30,6 +34,13 @@ public class Base {
 
     public void setNombreSabor(String nombreBase) {
         this.nombreBase = nombreBase;
+    }
+    
+    public static ArrayList<String> lineaBases(String nombrearchivo) throws IOException{
+        
+        ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
+        
+        return lineas;
     }
     
 }

@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package com.mycompany.opcion2_proyecto2p;
+package com.pooespol.proyecto_2p_poo;
 
+import Modelo.Base;
+import Modelo.IncompleteStageException;
+import static Modelo.Readable.leerArchivo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,33 +30,45 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import modelo.Bases;
 
 
 /**
  * FXML Controller class
  *
- * @author gabsjimz
+ * @author
  */
-public class Paso1Controller implements Initializable, Readable{
+public class Paso1Controller implements Initializable{
     private static Scene scene;
     @FXML
     private AnchorPane root;
     @FXML
     private VBox root2;
+    @FXML
     private Button btnYogurt;
+    @FXML
     private Button btnHelado;
+    @FXML
     private Button btnVegano;
+    @FXML
     private Label lbAcumulador;
+    @FXML
     private Label lbPrecioYogurt;
+    @FXML
     private Label lbPrecioHelado;
+    @FXML
     private Label lbPrecioVegano;
+    @FXML
     private HBox hbxDinamico;
+        
+    @FXML
+    private Button btnContinuar;
     
-    //Variables necesarias para la creación del pedido
+    private ArrayList<String> datosBases; 
     
-    private Bases base;
-
+    private Base baseSeleccionada=null;
+    
+    @FXML
+    private Label errorLabel;
     /**
      * Initializes the controller class.
      * @param url
@@ -61,131 +76,59 @@ public class Paso1Controller implements Initializable, Readable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
-        //Alinear hboxDinamico
-        hbxDinamico.setAlignment(Pos.CENTER);
-        
-        //Obtener información de los archivos
-        ArrayList<String> datosBases = leerArchivo(App.archBases);
-        
-        ArrayList<String> datosToppings = leerArchivo(App.archToppings);
-        
-        //Agregar información en los nodos
-        Thread t = new Thread(new Runnable(){
-            
-            @Override
-            public void run(){              
-              for(String linea: datosBases){
-                  String[] l = linea.trim().split(",");
-                  String x = l[0];
-                  switch(x){
-                      case "yogurt":
-                          Bases yogurt = new Bases(l[0], Double.parseDouble(l[1]));
-                          btnYogurt.setText(yogurt.getBase().substring(0,1).toUpperCase()+yogurt.getBase().substring(1));
-                          lbPrecioYogurt.setText(String.valueOf(yogurt.getPrecio()));
-                          break;
-                      case "helado":
-                          Bases helado = new Bases(l[0], Double.parseDouble(l[1]));
-                          btnHelado.setText(helado.getBase().substring(0,1).toUpperCase()+helado.getBase().substring(1));
-                          lbPrecioHelado.setText(String.valueOf(helado.getPrecio()));
-                          break;
-                      case "vegano":
-                          Bases vegano = new Bases(l[0], Double.parseDouble(l[1]));
-                          btnVegano.setText(vegano.getBase().substring(0,1).toUpperCase()+vegano.getBase().substring(1));
-                          lbPrecioVegano.setText(String.valueOf(vegano.getPrecio()));
-                          break;
-                  } 
-              }  
-            }
-        });
-        
-        t.start();
-    }    
-    
-    
-    /**Como equipo notamos que al iniciar los pasos, el usuario por impulso podría aplastar el button equivocado
-     * por lo que es optimo, proponerle la opción de cambiar el ítem.
-     **/
-    public void cambiarSabor(){
-        Button btnDinamico = new Button();
-        btnDinamico.setText("Cambiar Sabor");        
-        hbxDinamico.getChildren().add(btnDinamico);
-        
-        btnDinamico.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
-            @Override 
-            public void handle(MouseEvent mE){
-                deshabilitar(false);
-                sumarTotal(App.total*(-1));
-                lbAcumulador.setText("Valor a pagar: ");
-                hbxDinamico.getChildren().clear();
-            }
-        });
-    }
-
-
-    private void agregarValor(MouseEvent event) {
-        
-        Node nd = event.getPickResult().getIntersectedNode();
-        Button btn = new Button();
-        Text txt = new Text();
-        
-        /**Se encontró el problema de que al seleccionar el button (cualquiera) se obtenía un Nodo Button o un Nodo "LabeledText".
-          En este if verificamos al cual de ellos se accede.**/
-        
-        if(btn.getClass() == nd.getClass()){
-          btn = (Button) event.getPickResult().getIntersectedNode();
-          switch(btn.getText().toLowerCase()){
-            case "yogurt":
-                lbAcumulador.setText(lbAcumulador.getText()+lbPrecioYogurt.getText());
-                deshabilitar(true);
-                sumarTotal(Double.parseDouble(lbPrecioYogurt.getText()));
-                base = new Bases(btn.getText(),Double.parseDouble(lbPrecioYogurt.getText()));
-                break;
-            case "helado":
-                lbAcumulador.setText(lbAcumulador.getText()+lbPrecioHelado.getText());
-                deshabilitar(true);
-                sumarTotal(Double.parseDouble(lbPrecioHelado.getText()));
-                base = new Bases(btn.getText(),Double.parseDouble(lbPrecioHelado.getText()));
-                break;
-            case "vegano":
-                lbAcumulador.setText(lbAcumulador.getText()+lbPrecioVegano.getText());
-                deshabilitar(true);
-                sumarTotal(Double.parseDouble(lbPrecioVegano.getText()));
-                base = new Bases(btn.getText(),Double.parseDouble(lbPrecioVegano.getText()));
-                break;
-          } 
-        } 
-        
-        else {
-            txt = (Text)event.getPickResult().getIntersectedNode();
-            System.out.println(txt.getText());
+        try {
+            // TODO
+            datosBases= Base.lineaBases(App.pathI+"bases.txt");
+            //Alinear hboxDinamico
+            hbxDinamico.setAlignment(Pos.CENTER);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-        
-        cambiarSabor();
-    }
-    
-    
-    
-    //Funciones extras para simplificar el código
-   
-    //deshabilitar buttons
-    public void deshabilitar(boolean b){
-        btnYogurt.setDisable(b);
-        btnVegano.setDisable(b);
-        btnHelado.setDisable(b);
-    }
-    
-    //agregar valor al total
-    public double sumarTotal(double d){
-        App.total += d;
-        return App.total;
-    }
+    }    
 
     @FXML
-    private void cambiarAPaso2(ActionEvent event) throws IOException{
-        App.scene = new Scene(root2,747, 452);
+    private void seleccionarBoton(ActionEvent event) {
+        errorLabel.setText("");
+        Button boton = (Button) event.getSource();
+        String nombreBoton = boton.getId();
+        
+        String nuevoString = nombreBoton.substring(3);
+        nuevoString = Character.toLowerCase(nuevoString.charAt(0)) + nuevoString.substring(1);
+        
+        for (String s: datosBases){
+            String[] parte= s.trim().split(",");
+            if (nuevoString.equals(parte[0])){
+                baseSeleccionada= new Base(parte[0],Double.parseDouble(parte[1]));
+                lbAcumulador.setText("Valor a pagar: " + baseSeleccionada.getPrecio());
+                return;
+            }
+        }
+        
     }
+    
+    
+    @FXML
+    private void cambiarAPaso2(ActionEvent event) throws IOException,IncompleteStageException{
+        if (baseSeleccionada == null) {
+            try {
+                throw new IncompleteStageException("Debes elegir una base para continuar.");
+            } catch (IncompleteStageException e) {
+                errorLabel.setText(e.getMessage());
+            }
+        } else {
+            
+            App.basehelado=baseSeleccionada;
+            App.total+=baseSeleccionada.getPrecio();
+            
+            try {
+               App.setRoot("Paso2");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    
 } 
   
   

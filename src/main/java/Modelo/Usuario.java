@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Usuario {
@@ -58,7 +59,7 @@ public class Usuario {
         return name + " " + genero + " " + user + " " + password;
     }
     
-    public static ArrayList<Usuario> objetoUsuarios(String nombrearchivo){
+    public static ArrayList<Usuario> objetoUsuarios(String nombrearchivo) throws IOException{
         
         ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
         ArrayList<Usuario> usuarios = new ArrayList<>();

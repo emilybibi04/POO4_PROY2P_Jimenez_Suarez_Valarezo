@@ -1,3 +1,8 @@
 Grageas de chocolate,0.50
 Grageas de caramelo,0.50
 Sirope de manjar,0.80
+Grageas de chocolate,0.50
+Grageas de caramelo,0.50
+Sirope de manjar,0.80
+Nuez picada,0.75
+Fresas frescas,0.90

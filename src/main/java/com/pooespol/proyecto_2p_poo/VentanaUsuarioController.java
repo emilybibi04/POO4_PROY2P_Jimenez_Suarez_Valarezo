@@ -29,4 +29,10 @@ public class VentanaUsuarioController implements Initializable {
         App.setRoot("Ubicaciones");
     }
     
+    @FXML
+    private void switchHelado() throws IOException {
+        App.setRoot("Paso1");
+    }
+    
+    
 }

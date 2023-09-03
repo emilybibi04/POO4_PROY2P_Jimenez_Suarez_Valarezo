@@ -2,13 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package com.mycompany.opcion2_proyecto2p;
+package com.pooespol.proyecto_2p_poo;
 
+import Modelo.Toppings;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -22,14 +25,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import modelo.Toppings;
 
 /**
  * FXML Controller class
  *
  * @author gabsy
  */
-public class Paso3Controller implements Initializable, Readable{
+public class Paso3Controller implements Initializable{
 
     @FXML
     private GridPane gridAcu_Cont;
@@ -55,7 +57,7 @@ public class Paso3Controller implements Initializable, Readable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        lbAcumulador.setText("Valor a pagar: "+App.total);
         //geometry
         paneToppings.setAlignment(Pos.CENTER_LEFT);
         
@@ -68,7 +70,12 @@ public class Paso3Controller implements Initializable, Readable{
     
     //obtener Toppings
     public ArrayList<Toppings> obtenerToppings(){
-        ArrayList<String> datos = leerArchivo(App.archToppings);
+        ArrayList<String> datos=null;
+        try {
+            datos = Toppings.lineaToppings(App.pathI+"toppings.txt");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         ArrayList<Toppings> arregloToppings = new ArrayList<>(); 
         
         for(String line:datos){
@@ -101,7 +108,7 @@ public class Paso3Controller implements Initializable, Readable{
                 CheckBox cB = (CheckBox)nD;
                 cB.setOnAction((ActionEvent aE) -> {
                     ArrayList<Toppings> aniadir = manejarOpciones();
-                    App.toppings = aniadir;
+                    App.toppingshelado = aniadir;
                 });
             }
             
@@ -125,18 +132,17 @@ public class Paso3Controller implements Initializable, Readable{
             }   
         } 
         sumarATotal(tot);
-        System.out.println(arregloToppings);
         return arregloToppings;
     }
     
     //sumar a total
     public void sumarATotal(double aniadir){
-        lbAcumulador.setText("Valor a pagar: "+(App.total=aniadir));
+        lbAcumulador.setText("Valor a pagar: "+(App.total+aniadir));
     }   
     
     @FXML
     private void cambiarAPasoPago(ActionEvent event) {
-        
+        System.out.println(App.toppingshelado);
     }
     
 }

@@ -33,7 +33,7 @@
                   <Font name="Avenir Next Bold" size="28.0" />
                </font>
             </Button>
-            <Button fx:id="btnPedido" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" style="-fx-background-color: white;" text="Haz tu pedido" textFill="#c87777">
+            <Button fx:id="btnPedido" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchHelado" prefHeight="60.0" prefWidth="266.0" style="-fx-background-color: white;" text="Haz tu pedido" textFill="#c87777">
                <font>
                   <Font name="Avenir Next Bold" size="28.0" />
                </font>

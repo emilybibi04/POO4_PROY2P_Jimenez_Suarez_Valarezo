@@ -12,7 +12,7 @@ public class Helado {
     Toppings toppings;
     Sabores sabores;
     
-    public void Helado(Base base, Toppings toppings, Sabores sabores){
+    public Helado(Base base, Toppings toppings, Sabores sabores){
         this.base = base;
         this.toppings = toppings;
         this.sabores = sabores;

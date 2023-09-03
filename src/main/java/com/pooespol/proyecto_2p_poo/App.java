@@ -1,5 +1,8 @@
 package com.pooespol.proyecto_2p_poo;
 
+import Modelo.Base;
+import Modelo.Sabores;
+import Modelo.Toppings;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +16,11 @@ import javafx.scene.layout.Pane;
 
 public class App extends Application {
 
+    public static double total;
+    public static Base basehelado;
+    public static ArrayList<Sabores> saboreshelado=new ArrayList<>();
+    public static ArrayList<Toppings> toppingshelado;
+    
     private static Scene scene;
     public static String path = "src/main/resources/Pictures/";
     public static String pathI = "src/main/resources/Files/";

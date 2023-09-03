@@ -4,13 +4,16 @@
  */
 package Modelo;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Toppings {
     
     double precio;
     String nombreTopping;
     
     //Constructor de la clase
-    public void Topping(double precio, String nombreTopping){
+    public Toppings(String nombreTopping, double precio ){
         this.precio = precio;
         this.nombreTopping = nombreTopping;
     }
@@ -32,4 +35,14 @@ public class Toppings {
         this.nombreTopping = nombreTopping;
     }
     
+    @Override
+    public String toString(){
+        return this.nombreTopping+" - "+this.precio;
+    }
+    public static ArrayList<String> lineaToppings(String nombrearchivo) throws IOException{
+        
+        ArrayList<String> lineas = Readable.leerArchivo(nombrearchivo);
+        
+        return lineas;
+    }
 }
