@@ -32,10 +32,13 @@ public class UbicacionesController implements Initializable {
     @FXML
     private Pane paneUbicaciones;
     
+    @FXML
+    private Button btnCerrarr;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        ArrayList<Ubicacion> locales = Ubicacion.objetoUbicaciones("locales.txt");
+        ArrayList<Ubicacion> locales = Ubicacion.objetoUbicaciones(App.pathI + "locales.txt");
         
         Thread thread = new Thread(() -> {
             for (Ubicacion u : locales) {
@@ -52,6 +55,7 @@ public class UbicacionesController implements Initializable {
         });
 
         thread.start();
+        
     }  
     
     private void mostrarDetallesUbicacion(Ubicacion u) {
@@ -60,10 +64,11 @@ public class UbicacionesController implements Initializable {
             Image image = new Image(input, 68, 50, false, false);
             i.setImage(image);
             
-            i.setLayoutX(u.getCoorX()*2);
-            i.setLayoutY(u.getCoorY()*-1.5);
+            i.setLayoutX(u.getCoorX()*1.5);
+            i.setLayoutY(u.getCoorY()*1.5);
 
             paneUbicaciones.getChildren().addAll(i);
+            
             
             i.setOnMouseClicked(new EventHandler<MouseEvent>(){
                 @Override
@@ -166,6 +171,11 @@ public class UbicacionesController implements Initializable {
         } catch (IOException e){
                 System.out.println("No se encuentra la imagen");
         }
+    }
+    
+    @FXML
+    private void close() throws IOException {
+        App.setRoot("VentanaUsuario");
     }
     
 }

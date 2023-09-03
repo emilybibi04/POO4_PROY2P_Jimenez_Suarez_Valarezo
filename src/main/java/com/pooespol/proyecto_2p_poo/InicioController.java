@@ -30,13 +30,13 @@ public class InicioController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         
+        
     }    
     
     @FXML
     private void switchVentanaUsuario() throws IOException {
         
-        usuariosRegistrados = Usuario.objetoUsuarios("usuarios.txt");
+        usuariosRegistrados = Usuario.objetoUsuarios(App.pathI + "usuarios.txt");
         String user = textUsuario.getText();
         String pass = PasswordF.getText();
         boolean validar = Usuario.comprobarUsuario(user, pass, usuariosRegistrados);

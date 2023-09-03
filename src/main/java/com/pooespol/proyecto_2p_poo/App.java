@@ -15,6 +15,7 @@ public class App extends Application {
 
     private static Scene scene;
     public static String path = "src/main/resources/Pictures/";
+    public static String pathI = "src/main/resources/Files/";
     
     public void start(Stage s) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Inicio.fxml"));
