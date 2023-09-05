@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
+
 package com.pooespol.proyecto_2p_poo;
 
 import Modelo.ID;
@@ -21,16 +22,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
-/**
- * FXML Controller class
- *
- * @author davidsuarez
- */
 public class PagarController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     RadioButton rbEfectivo;
     
@@ -71,7 +64,6 @@ public class PagarController implements Initializable {
         lbIva.setText("0.00");
         
         lbTotalFinal.setText("0.00");
-        
     }
     
     @FXML
@@ -113,10 +105,7 @@ public class PagarController implements Initializable {
         lbTotalFinal.setText(String.valueOf(ftotal));
         
         App.tipo='C';
-        
-        
-        
-
+ 
     }
     
     @FXML
@@ -149,10 +138,8 @@ public class PagarController implements Initializable {
                 App.pgenerados.add(part[2]+", "+part[1]);
             }
         
-        
             //App.setRoot(""); poner la ultima escena
         }
     }
-    
-    
+   
 }

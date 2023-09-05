@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package Modelo;
 
 import com.pooespol.proyecto_2p_poo.App;
@@ -9,10 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 
-/**
- *
- * @author davidsuarez
- */
 public class Pedido implements Serializable,Pagable{
     int id;
     Usuario usuario;

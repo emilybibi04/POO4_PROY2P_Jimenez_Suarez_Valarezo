@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
 
 public class App extends Application {
 

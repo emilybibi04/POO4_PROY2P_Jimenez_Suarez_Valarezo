@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
+
 package com.pooespol.proyecto_2p_poo;
 
 import Modelo.Toppings;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -26,11 +26,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-/**
- * FXML Controller class
- *
- * @author gabsy
- */
 public class Paso3Controller implements Initializable{
 
     @FXML
@@ -51,10 +46,7 @@ public class Paso3Controller implements Initializable{
     private HBox paneEstaticos;
     
     private double total2;
-    
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

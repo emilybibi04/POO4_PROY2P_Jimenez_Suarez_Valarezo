@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
+
 package com.pooespol.proyecto_2p_poo;
 
 import Modelo.Helado;
@@ -31,16 +32,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author davidsuarez
- */
 public class TuPedidoController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     private ListView<String> lista;
     
