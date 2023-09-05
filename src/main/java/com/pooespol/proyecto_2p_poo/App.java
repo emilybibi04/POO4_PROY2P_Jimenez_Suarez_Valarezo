@@ -34,6 +34,8 @@ public class App extends Application {
     public static double totalPagar;
     public static String fecha;
     public static char tipo;
+    //para actualizar la lista de pedidos en tiempo real
+    public static ArrayList<String> pgenerados= new ArrayList<>();
     
     //rutas
     private static Scene scene;

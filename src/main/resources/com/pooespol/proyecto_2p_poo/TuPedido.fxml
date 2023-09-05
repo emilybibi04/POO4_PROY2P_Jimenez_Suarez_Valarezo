@@ -8,65 +8,64 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="AnchorPane" prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.TuPedidoController">
+<VBox id="AnchorPane" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_TuPedido.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.TuPedidoController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="141.0" prefWidth="1240.0">
+      <HBox prefHeight="472.0" prefWidth="1240.0">
          <children>
-            <Label text="Tu pedido">
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Arial Bold" size="25.0" />
-               </font>
-            </Label>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="477.0" prefWidth="876.0">
+               <children>
+                  <ListView fx:id="lista" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="599.0" style="-fx-border-color: #76ACAE; -fx-border-width: 8; -fx-font-family: Avenir Next; -fx-font-size: 24 px;">
+                     <VBox.margin>
+                        <Insets right="45.0" />
+                     </VBox.margin>
+                  </ListView>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="313.0">
+               <children>
+                  <Label fx:id="lbPagar" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="369.0" text="Valor a pagar:  0.0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </HBox>
-      <HBox prefHeight="268.0" prefWidth="1240.0">
+      <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="1061.0">
          <children>
-            <ListView fx:id="lista" prefHeight="221.0" prefWidth="285.0">
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
-            </ListView>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" text="Eliminar">
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
+            <Button fx:id="btnEliminar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Eliminar" textFill="#578b8d">
+               <font>
+                  <Font name="Avenir Next Bold" size="28.0" />
+               </font>
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="1240.0">
+      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="1173.0" spacing="45.0">
          <children>
-            <Label fx:id="lbMsg" prefHeight="17.0" prefWidth="416.0">
+            <Label fx:id="lbMsg" alignment="BOTTOM_CENTER" prefHeight="59.0" prefWidth="620.0" textFill="WHITE">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Avenir Next Bold" size="30.0" />
                </font>
             </Label>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="lbPagar" prefHeight="17.0" prefWidth="198.0" text="Valor a pagar: ">
+            <Button fx:id="btnCancelar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Cancelar" textFill="#578b8d">
                <HBox.margin>
-                  <Insets left="40.0" />
+                  <Insets />
                </HBox.margin>
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Avenir Next Bold" size="28.0" />
                </font>
-            </Label>
-            <Button fx:id="btnConfirmar" mnemonicParsing="false" onAction="#cambiarAPasoPago2" text="Confirmar">
-               <HBox.margin>
-                  <Insets left="90.0" />
-               </HBox.margin>
             </Button>
-            <Button fx:id="btnCancelar" mnemonicParsing="false" text="Cancelar">
+            <Button fx:id="btnConfirmar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cambiarAPasoPago2" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Confirmar" textFill="#578b8d">
                <HBox.margin>
-                  <Insets left="40.0" />
+                  <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="Avenir Next Bold" size="28.0" />
+               </font>
             </Button>
          </children>
       </HBox>

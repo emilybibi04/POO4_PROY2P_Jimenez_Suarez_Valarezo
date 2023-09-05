@@ -6,10 +6,12 @@ package com.pooespol.proyecto_2p_poo;
 
 import Modelo.ID;
 import Modelo.IncompleteFieldsException;
+import static Modelo.Readable.leerArchivo;
 import static Modelo.Readable.obtenerFechaActual;
 import static Modelo.Readable.redondear;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -137,6 +139,15 @@ public class PagarController implements Initializable {
             App.fecha=obtenerFechaActual();
             
             App.pedido.generarTransaccion();
+            
+            //actualizar lista de pedidos generados
+            ArrayList<String> op = leerArchivo(App.pathH+"pagos.txt");
+            op.remove(0);
+            App.pgenerados= new ArrayList<>();
+            for (String a: op){
+                String[] part = a.trim().split(",");
+                App.pgenerados.add(part[2]+", "+part[1]);
+            }
         
         
             //App.setRoot(""); poner la ultima escena

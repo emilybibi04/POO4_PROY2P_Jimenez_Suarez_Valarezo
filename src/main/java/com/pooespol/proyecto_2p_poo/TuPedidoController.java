@@ -112,11 +112,11 @@ public class TuPedidoController implements Initializable {
             } 
         } else {
             // Mostrar un mensaje de error si no hay suficientes sabores
-            lbMsg.setText("Tiene que haber mínimo un sabor en la lista.");
+            lbMsg.setText("Tiene que haber mínimo un sabor");
         }
     } else {
         // Mostrar un mensaje de error si el elemento no es un sabor
-        lbMsg.setText("Solo se pueden eliminar sabores.");
+        lbMsg.setText("Solo se pueden eliminar sabores");
     }
 }
     //metodo para saber si los sabores del ListView
