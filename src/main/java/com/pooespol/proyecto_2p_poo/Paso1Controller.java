@@ -111,14 +111,14 @@ public class Paso1Controller implements Initializable{
     private void cambiarAPaso2(ActionEvent event) throws IOException,IncompleteStageException{
         if (baseSeleccionada == null) {
             try {
-                throw new IncompleteStageException("Debes elegir una base para continuar.");
+                throw new IncompleteStageException("Debes elegir una base para continuar");
             } catch (IncompleteStageException e) {
                 errorLabel.setText(e.getMessage());
             }
         } else {
             
-            App.basehelado=baseSeleccionada;
-            App.total+=baseSeleccionada.getPrecio();
+            App.basehelado = baseSeleccionada;
+            App.total += baseSeleccionada.getPrecio();
             
             try {
                App.setRoot("Paso2");
