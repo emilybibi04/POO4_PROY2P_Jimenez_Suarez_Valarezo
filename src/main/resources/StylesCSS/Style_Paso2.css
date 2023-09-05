@@ -1,0 +1,9 @@
+
+.root{
+    -fx-background-image: url("/Pictures/Background_PasoDos.png");
+    -fx-background-size:cover;
+}
+
+.combo-box .text {
+    -fx-fill: #592c5d;
+}

@@ -37,7 +37,7 @@ public class Toppings {
     
     @Override
     public String toString(){
-        return this.nombreTopping+" - "+this.precio;
+        return this.nombreTopping + " - " + this.precio;
     }
     public static ArrayList<String> lineaToppings(String nombrearchivo) throws IOException{
         

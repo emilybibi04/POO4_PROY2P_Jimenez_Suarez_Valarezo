@@ -23,10 +23,10 @@ public class VentanaUsuarioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         String genero = App.cliente.getGenero();
         if (genero.equals("f")){
-            lblBienvenido.setText("Bienvenida");
+            lblBienvenido.setText("B I E N V E N I D A");
         }
         else
-            lblBienvenido.setText("Bienvenido");
+            lblBienvenido.setText("B I E N V E N I D O");
         lblNombre.setText(App.cliente.getName());
     }    
     

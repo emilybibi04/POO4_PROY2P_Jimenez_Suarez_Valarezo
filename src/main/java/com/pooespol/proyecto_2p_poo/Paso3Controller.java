@@ -93,9 +93,10 @@ public class Paso3Controller implements Initializable{
         ArrayList<Toppings> arregloToppings = obtenerToppings();
         
         for(Toppings t:arregloToppings){
-            CheckBox cB= new CheckBox(t.toString());
-            cB.setPadding(new Insets(5,40,5,40));
+            CheckBox cB = new CheckBox(" " + t.toString());
+            cB.setPadding(new Insets(5,50,5,20));
             cB.setOnAction((ActionEvent aE) -> {});
+            cB.setStyle("-fx-text-fill: white");
             paneToppings.getChildren().add(cB);
         }
     }

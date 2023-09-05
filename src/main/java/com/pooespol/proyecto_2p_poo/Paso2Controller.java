@@ -140,7 +140,7 @@ public class Paso2Controller implements Initializable{
     private void cambiarAPaso3(ActionEvent event) throws IOException,IncompleteStageException{
         if (total == 0.00) {
             try {
-                throw new IncompleteStageException("Debe elegir al menos una opción para continuar.");
+                throw new IncompleteStageException("Debe elegir al menos una opción para continuar");
             } catch (IncompleteStageException e) {
                 errorLabel2.setText(e.getMessage());
             }

@@ -16,7 +16,7 @@
                   <Font name="DM Sans Regular" size="70.0" />
                </font>
             </Label>
-            <Label fx:id="lblNombre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="635.0" textFill="WHITE">
+            <Label fx:id="lblNombre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="1004.0" textFill="WHITE">
                <font>
                   <Font name="Bogart Trial Bold" size="130.0" />
                </font>

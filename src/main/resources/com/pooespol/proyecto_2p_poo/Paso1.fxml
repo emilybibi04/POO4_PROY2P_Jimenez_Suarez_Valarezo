@@ -20,7 +20,7 @@
                   <VBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="228.0" prefWidth="876.0" />
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="313.0">
                      <children>
-                        <Label fx:id="lbAcumulador" alignment="CENTER" prefHeight="47.0" prefWidth="304.0" text="Valor a pagar:  0.0" textFill="WHITE">
+                        <Label fx:id="lbAcumulador" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="304.0" text="Valor a pagar:  0.0" textFill="WHITE">
                            <font>
                               <Font name="Avenir Next Bold" size="32.0" />
                            </font>

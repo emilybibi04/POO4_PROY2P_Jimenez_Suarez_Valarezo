@@ -43,7 +43,7 @@ public class Sabores implements Comparable<Sabores>{
     
     @Override
     public String toString(){
-        return this.nombreSabor+"-"+this.precio;
+        return this.nombreSabor + " - " + this.precio;
     }
     
     public static ArrayList<String> lineaSabores(String nombrearchivo) throws IOException{
