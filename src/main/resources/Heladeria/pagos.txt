@@ -1,0 +1,1 @@
+Idpago,idpedido,nombreCLiente,totalPagar,fecha,tipo

@@ -21,7 +21,13 @@ public class VentanaUsuarioController implements Initializable {
       
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        String genero = App.cliente.getGenero();
+        if (genero.equals("f")){
+            lblBienvenido.setText("Bienvenida");
+        }
+        else
+            lblBienvenido.setText("Bienvenido");
+        lblNombre.setText(App.cliente.getName());
     }    
     
     @FXML

@@ -50,6 +50,7 @@ public class Paso3Controller implements Initializable{
     @FXML
     private HBox paneEstaticos;
     
+    private double total2;
     
     /**
      * Initializes the controller class.
@@ -141,8 +142,16 @@ public class Paso3Controller implements Initializable{
     }   
     
     @FXML
-    private void cambiarAPasoPago(ActionEvent event) {
-        System.out.println(App.toppingshelado);
+    private void cambiarAPasoPago() throws IOException {
+        
+        String a= lbAcumulador.getText();
+        int indiceInicio = a.indexOf(":") + 2; // Suma 2 para saltar el espacio
+        String numeroString = a.substring(indiceInicio);
+        double valor = Double.parseDouble(numeroString);
+        App.total = valor;
+        
+        App.setRoot("TuPedido");
+        
     }
     
 }

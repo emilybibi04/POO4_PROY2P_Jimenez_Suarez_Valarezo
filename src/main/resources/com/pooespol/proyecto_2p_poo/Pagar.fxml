@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="AnchorPane" prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.PagarController">
+   <children>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="128.0" prefWidth="1240.0">
+         <children>
+            <Label text="Pago">
+               <padding>
+                  <Insets left="60.0" />
+               </padding></Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="1240.0">
+         <children>
+            <RadioButton fx:id="rbEfectivo" mnemonicParsing="false" onAction="#pagarEfectivo" text="Efectivo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="metodoPago" />
+               </toggleGroup>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton fx:id="rbTarjeta" mnemonicParsing="false" onAction="#pagarTarjeta" text="Tarjeta de Crédito" toggleGroup="$metodoPago">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin></RadioButton>
+         </children>
+      </HBox>
+      <VBox prefHeight="212.0" prefWidth="600.0">
+         <children>
+            <Label text="Detalle de pago">
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
+                     <children>
+                        <Label text="Valor a pagar:">
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
+                     <children>
+                        <Label fx:id="lbTotal" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></Label>
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="184.0" text="Adicional tarjeta:">
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
+                     <children>
+                        <Label fx:id="lbAdTarjeta" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></Label>
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
+                     <children>
+                        <Label text="IVA:">
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
+                     <children>
+                        <Label fx:id="lbIva" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></Label>
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
+                     <children>
+                        <Label text="Total a pagar:">
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
+                     <children>
+                        <Label fx:id="lbTotalFinal" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></Label>
+                     </children>
+                  </VBox>
+               </children></HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox prefHeight="158.0" prefWidth="1114.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="102.0" prefWidth="634.0">
+                     <children>
+                        <Label fx:id="lbEfectivo">
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="1240.0" spacing="40.0">
+         <children>
+            <Button fx:id="btnConf" mnemonicParsing="false" onAction="#generarOrden" text="Confirmar">
+               <HBox.margin>
+                  <Insets left="400.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

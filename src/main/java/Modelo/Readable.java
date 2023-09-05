@@ -4,11 +4,18 @@
  */
 package Modelo;
 
+import com.pooespol.proyecto_2p_poo.App;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public interface Readable {
     
@@ -44,4 +51,42 @@ public interface Readable {
         return lineas;
     }
     
+    static void escribirPedidos(Pedido p, String ruta){
+        FileWriter writer=null;
+        try{
+            writer= new FileWriter(ruta,true);
+            writer.write(p+"\n");
+
+        }catch(IOException ex){
+            ex.printStackTrace();
+        } finally{
+            try{
+                writer.close();
+            } catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    
+    static void serializarPedidos(Pedido p){
+        try (ObjectOutputStream objstrm= new ObjectOutputStream(new FileOutputStream(App.pathS+"pedido"+p.id+".bin"));){
+            objstrm.writeObject(p);
+        } catch(IOException e){
+            
+            System.out.println("Excepcion durante la serializacion");
+        }
+    }
+    
+    static double redondear(double numero){
+    
+        double num= Math.round((numero) * 100.0) / 100.0;
+        return num;
+    }
+    
+    public static String obtenerFechaActual() {
+        Date fechaActual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        return formato.format(fechaActual);
+    }
 }

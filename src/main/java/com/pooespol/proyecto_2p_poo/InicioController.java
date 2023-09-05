@@ -41,6 +41,7 @@ public class InicioController implements Initializable {
         String pass = PasswordF.getText();
         boolean validar = Usuario.comprobarUsuario(user, pass, usuariosRegistrados);
         if(validar){
+            App.cliente=Usuario.crearUsuario(user, pass, usuariosRegistrados);
             App.setRoot("VentanaUsuario");
         }
         else {

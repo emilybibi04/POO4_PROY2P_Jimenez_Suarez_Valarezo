@@ -1,8 +1,11 @@
 package com.pooespol.proyecto_2p_poo;
 
 import Modelo.Base;
+import Modelo.Helado;
+import Modelo.Pedido;
 import Modelo.Sabores;
 import Modelo.Toppings;
+import Modelo.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,14 +19,28 @@ import javafx.scene.layout.Pane;
 
 public class App extends Application {
 
-    public static double total;
+    //variables statics para hacer objeto helado
     public static Base basehelado;
     public static ArrayList<Sabores> saboreshelado=new ArrayList<>();
-    public static ArrayList<Toppings> toppingshelado;
+    public static ArrayList<Toppings> toppingshelado= null;
+    //variables estaticas para hacer objeto pedido
+    public static double total;
+    public static Usuario cliente;
+    public static int id;
+    public static Helado helado;
+    //para escribir en pago
+    public static Pedido pedido;
+    public static int idpago;
+    public static double totalPagar;
+    public static String fecha;
+    public static char tipo;
     
+    //rutas
     private static Scene scene;
     public static String path = "src/main/resources/Pictures/";
     public static String pathI = "src/main/resources/Files/";
+    public static String pathH = "src/main/resources/Heladeria/";
+    public static String pathS = "src/main/resources/Serializados/";
     
     public void start(Stage s) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Inicio.fxml"));

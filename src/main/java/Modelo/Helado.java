@@ -5,14 +5,15 @@
 package Modelo;
 
 import Modelo.Base;
+import java.util.ArrayList;
 
 public class Helado {
     
     Base base;
-    Toppings toppings;
-    Sabores sabores;
+    ArrayList<Toppings> toppings;
+    ArrayList<Sabores> sabores;
     
-    public Helado(Base base, Toppings toppings, Sabores sabores){
+    public Helado(Base base, ArrayList<Toppings> toppings, ArrayList<Sabores> sabores){
         this.base = base;
         this.toppings = toppings;
         this.sabores = sabores;

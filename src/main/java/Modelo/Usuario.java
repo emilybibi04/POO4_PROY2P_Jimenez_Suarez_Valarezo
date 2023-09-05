@@ -85,4 +85,14 @@ public class Usuario {
         return false; // Usuario no encontrado, retorna false
     }
     
+    public static Usuario crearUsuario(String user, String pass, ArrayList<Usuario> lista){
+        Usuario persona= null;
+        for (Usuario u : lista) {
+            if (u.getUser().equals(user) && u.getPassword().equals(pass)) {
+                persona=new Usuario(u.name,u.genero,u.user,u.password);
+
+            }        
+        }
+        return persona;
+    }
 }
