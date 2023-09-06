@@ -171,8 +171,6 @@ public class PagarController implements Initializable {
     @FXML
     public void pagarTarjeta(ActionEvent event){
         
-        //VBoxContenido.getChildren().clear();
-        
         lbEfectivo.setText("");
         
         double tot=redondear(App.total);

@@ -29,3 +29,5 @@ IDpedido,nombreCliente,total
 7349,P,4.5
 6223,P,5.0
 6449,P,4.5
+5704,P,5.0
+3849,P,5.0
