@@ -71,10 +71,10 @@ public class PagarController implements Initializable {
     @FXML
     VBox VBoxContenido;
     
-    private TextField unoF;
-    private TextField dosF;
-    private DatePicker tresF;
-    private TextField cuatroF;
+    private TextField unoF= new TextField();
+    private TextField dosF= new TextField();
+    private DatePicker tresF= new DatePicker();
+    private TextField cuatroF= new TextField();
     
     private boolean check=true;
     /**
@@ -126,6 +126,12 @@ public class PagarController implements Initializable {
         App.tipo ='E';
         
         App.fecha=obtenerFechaActual();
+        
+        unoF.setText("a");
+        dosF.setText("a");
+        LocalDate defaultDate = LocalDate.of(2023, 9, 5);
+        tresF.setValue(defaultDate);
+        cuatroF.setText("a");
     }
     /**
      * Realiza el proceso de pago con tarjeta y actualiza los campos en la ventana de pago.
