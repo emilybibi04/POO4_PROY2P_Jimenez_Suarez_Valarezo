@@ -71,6 +71,36 @@ public class PagarController implements Initializable {
     @FXML
     VBox VBoxContenido;
     
+    @FXML
+    VBox vboxGreen;
+    
+    @FXML
+    Label lblTarjeta;
+    
+    @FXML
+    HBox h1;
+    
+    @FXML
+    HBox h2;
+    
+    @FXML
+    HBox h3;
+    
+    @FXML
+    HBox h4;
+    
+    @FXML
+    Label l1;
+    
+    @FXML
+    Label l2;
+    
+    @FXML
+    Label l3;
+    
+    @FXML
+    Label l4;
+    
     private TextField unoF= new TextField();
     private TextField dosF= new TextField();
     private DatePicker tresF= new DatePicker();
@@ -141,7 +171,7 @@ public class PagarController implements Initializable {
     @FXML
     public void pagarTarjeta(ActionEvent event){
         
-        VBoxContenido.getChildren().clear();
+        //VBoxContenido.getChildren().clear();
         
         lbEfectivo.setText("");
         
@@ -159,70 +189,34 @@ public class PagarController implements Initializable {
         
         App.tipo='C';
         
-        Label nomTarjeta = new Label("Datos de la Tarjeta");
-        nomTarjeta.setStyle("-fx-font-family: Bogart Trial; -fx-font-weight: Bold");
-        nomTarjeta.setPrefWidth(500);
+        lblTarjeta.setText("Datos de la Tarjeta");
 
-        VBox vTarjeta = new VBox();
-        vTarjeta.setPrefWidth(500);
-        vTarjeta.setPrefHeight(241);
-        vTarjeta.setStyle("-fx-background-color:  #4D846B");
+        vboxGreen.setStyle("-fx-background-color: #4D846B");
 
-        HBox uno = new HBox();
-        uno.setPrefWidth(444);
-        uno.setPrefHeight(44);
-        Label unoL = new Label("Nombre:");
-        unoL.setPrefWidth(173);
-        unoL.setPrefHeight(26);
-        unoL.setAlignment(Pos.CENTER_LEFT);
+        l1.setText("Nombre:");
         unoF = new TextField();
         unoF.setPrefWidth(270);
         unoF.setPrefHeight(30);
-        uno.getChildren().addAll(unoL, unoF);
+        h1.getChildren().addAll(unoF);
 
-        HBox dos = new HBox();
-        dos.setPrefWidth(444);
-        dos.setPrefHeight(44);
-        Label dosL = new Label("Número:");
-        dosL.setPrefWidth(173);
-        dosL.setPrefHeight(26);
-        dosL.setAlignment(Pos.CENTER_LEFT);
+        l2.setText("Número:");
         dosF = new TextField();
         dosF.setPrefWidth(270);
         dosF.setPrefHeight(30);
-        dos.getChildren().addAll(dosL, dosF);
+        h2.getChildren().addAll(dosF);
 
-        HBox tres = new HBox();
-        tres.setPrefWidth(444);
-        tres.setPrefHeight(44);
-        Label tresL = new Label("Fecha Caducidad:");
-        tresL.setPrefWidth(173);
-        tresL.setPrefHeight(26);
-        tresL.setAlignment(Pos.CENTER_LEFT);
+        l3.setText("Caducidad:");
         tresF = new DatePicker();
         tresF.setPrefWidth(270);
         tresF.setPrefHeight(30);
-        tres.getChildren().addAll(tresL, tresF);
+        h3.getChildren().addAll(tresF);
 
-        HBox cuatro = new HBox();
-        cuatro.setPrefWidth(444);
-        cuatro.setPrefHeight(44);
-        Label cuatroL = new Label("CVV:");
-        cuatroL.setPrefWidth(173);
-        cuatroL.setPrefHeight(26);
-        cuatroL.setAlignment(Pos.CENTER_LEFT);
+        l4.setText("CVV:");
         cuatroF = new TextField();
         cuatroF.setPrefWidth(270);
         cuatroF.setPrefHeight(30);
-        cuatro.getChildren().addAll(cuatroL, cuatroF);
-
-        vTarjeta.getChildren().addAll(uno, dos, tres, cuatro);
-        VBoxContenido.setPrefWidth(595);
-        VBoxContenido.setPrefHeight(281);
-        VBoxContenido.getChildren().addAll(vTarjeta);
+        h4.getChildren().addAll(cuatroF);
         
-        
- 
     }
     
     /**

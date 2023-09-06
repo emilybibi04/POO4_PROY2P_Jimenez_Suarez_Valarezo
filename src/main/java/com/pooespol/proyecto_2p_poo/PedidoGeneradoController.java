@@ -4,6 +4,7 @@
  */
 package com.pooespol.proyecto_2p_poo;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -45,8 +47,6 @@ public class PedidoGeneradoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lbPedido2.setText(String.valueOf(App.id));
-        
-        
         
         Thread thread = new Thread(() -> {
             for (int i = 5; i > 0; i--) {

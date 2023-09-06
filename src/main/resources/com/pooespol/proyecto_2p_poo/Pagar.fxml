@@ -9,26 +9,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_Pagar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.PagarController">
    <children>
       <VBox id="AnchorPane" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="595.0">
          <children>
-            <VBox alignment="TOP_RIGHT" prefHeight="325.0" prefWidth="595.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="315.0" prefWidth="595.0">
                <children>
-                  <Label alignment="BOTTOM_CENTER" prefHeight="96.0" prefWidth="500.0" text="Detalle de Pago" textFill="WHITE">
+                  <Label alignment="BOTTOM_CENTER" prefHeight="86.0" prefWidth="500.0" text="Detalle de Pago" textFill="WHITE">
                      <font>
                         <Font name="Bogart Trial Bold" size="27.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="500.0" style="-fx-background-color: #4D846B;">
                      <children>
                         <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
                            <children>
-                              <Label prefHeight="26.0" prefWidth="173.0" text="Valor a pagar:" textFill="WHITE">
+                              <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="173.0" text="Valor a pagar:" textFill="WHITE">
                                  <font>
                                     <Font name="DM Sans Regular" size="20.0" />
                                  </font>
@@ -37,9 +36,6 @@
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
                                  <font>
                                     <Font name="DM Sans Regular" size="20.0" />
                                  </font>
@@ -54,9 +50,6 @@
                                  </font>
                               </Label>
                               <Label fx:id="lbAdTarjeta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
                                  <font>
                                     <Font name="DM Sans Regular" size="20.0" />
                                  </font>
@@ -71,9 +64,6 @@
                                  </font>
                               </Label>
                               <Label fx:id="lbIva" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
                                  <font>
                                     <Font name="DM Sans Regular" size="20.0" />
                                  </font>
@@ -88,9 +78,6 @@
                                  </font>
                               </Label>
                               <Label fx:id="lbTotalFinal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
                                  <font>
                                     <Font name="DM Sans Regular" size="20.0" />
                                  </font>
@@ -101,8 +88,58 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox fx:id="VBoxContenido" alignment="CENTER_RIGHT" prefHeight="281.0" prefWidth="595.0" />
-            <VBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="595.0">
+            <VBox fx:id="VBoxContenido" alignment="CENTER_RIGHT" prefHeight="286.0" prefWidth="595.0">
+               <children>
+                  <Label fx:id="lblTarjeta" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="500.0" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Bogart Trial Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxGreen" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="500.0">
+                     <children>
+                        <HBox fx:id="h1" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label fx:id="l1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="173.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="h2" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label fx:id="l2" prefHeight="26.0" prefWidth="173.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="h3" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label fx:id="l3" prefHeight="26.0" prefWidth="173.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="h4" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label fx:id="l4" prefHeight="26.0" prefWidth="173.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children></VBox>
+            <VBox alignment="BOTTOM_RIGHT" prefHeight="56.0" prefWidth="595.0">
                <children>
                   <Label fx:id="lbEfectivo" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="500.0" text="Acércate a Caja para pagar tu pedido!" textFill="WHITE">
                      <VBox.margin>
