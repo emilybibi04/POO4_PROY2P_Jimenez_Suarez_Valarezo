@@ -40,5 +40,14 @@
             </Button>
          </children>
       </HBox>
+      <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="1195.0">
+         <children>
+            <Button fx:id="btnSalir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#salir" prefHeight="60.0" prefWidth="175.0" style="-fx-background-color: white;" text="Salir" textFill="#c87777">
+               <font>
+                  <Font name="Avenir Next Bold" size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </VBox>
