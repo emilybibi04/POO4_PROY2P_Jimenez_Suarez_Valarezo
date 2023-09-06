@@ -18,7 +18,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * La interfaz Readable proporciona métodos estáticos para realizar operaciones relacionadas con la lectura,
+ * escritura y manipulación de datos.
+ */
+
 public interface Readable {
+    
+    /**
+     * Lee un archivo de texto y devuelve su contenido como una lista de cadenas.
+     *
+     * @param nombreArchivo El nombre del archivo a leer.
+     * @return Una lista de cadenas que representan las líneas del archivo.
+     */
     
     static ArrayList<String> leerArchivo(String nombreArchivo){
         
@@ -52,6 +64,13 @@ public interface Readable {
         return lineas;
     }
     
+    /**
+     * Escribe un pedido en un archivo de texto especificado.
+     *
+     * @param p    El pedido a escribir.
+     * @param ruta La ruta del archivo en el que se escribirá el pedido.
+     */
+    
     static void escribirPedidos(Pedido p, String ruta){
         FileWriter writer=null;
         try{
@@ -69,6 +88,11 @@ public interface Readable {
         }
     }
     
+    /**
+     * Serializa un pedido y lo guarda en un archivo binario.
+     *
+     * @param p El pedido a serializar.
+     */
     
     static void serializarPedidos(Pedido p){
         try (ObjectOutputStream objstrm= new ObjectOutputStream(new FileOutputStream(App.pathS+"pedido"+p.id+".bin"));){
@@ -79,11 +103,24 @@ public interface Readable {
         }
     }
     
+    /**
+     * Redondea un número decimal a dos decimales.
+     *
+     * @param numero El número decimal a redondear.
+     * @return El número redondeado con dos decimales.
+     */
+    
     static double redondear(double numero){
     
         double num= Math.round((numero) * 100.0) / 100.0;
         return num;
     }
+    
+    /**
+     * Obtiene la fecha actual en formato "dd/MM/yyyy".
+     *
+     * @return La fecha actual en formato "dd/MM/yyyy".
+     */
     
     public static String obtenerFechaActual() {
         Date fechaActual = new Date();

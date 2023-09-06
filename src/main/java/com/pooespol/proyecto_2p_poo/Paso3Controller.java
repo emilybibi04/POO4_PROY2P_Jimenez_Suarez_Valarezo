@@ -31,6 +31,7 @@ import javafx.scene.text.Text;
  * Esta clase es el controlador para la ventana de selección de toppings en el proceso de pedido.
  * Implementa la interfaz Initializable y gestiona la elección de toppings para el helado.
  */
+
 public class Paso3Controller implements Initializable{
 
     @FXML
@@ -58,6 +59,7 @@ public class Paso3Controller implements Initializable{
      * @param url La ubicación relativa de la vista FXML.
      * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -77,6 +79,7 @@ public class Paso3Controller implements Initializable{
      *
      * @return Una lista de objetos Toppings.
      */
+    
     public ArrayList<Toppings> obtenerToppings(){
         ArrayList<String> datos=null;
         try {
@@ -98,6 +101,7 @@ public class Paso3Controller implements Initializable{
     /**
      * Crea nodos CheckBox para las opciones de toppings y los agrega al panel de toppings.
      */
+    
     public void agregarOpciones(){
         ArrayList<Toppings> arregloToppings = obtenerToppings();
         
@@ -113,6 +117,7 @@ public class Paso3Controller implements Initializable{
     /**
      * Agrega eventos a los CheckBox para manejar las selecciones de toppings.
      */
+    
     public void agregarEventoCB(){
         
         ObservableList<Node> arregloNodos = paneToppings.getChildren();
@@ -133,6 +138,7 @@ public class Paso3Controller implements Initializable{
      *
      * @return Una lista de toppings seleccionados.
      */
+    
     public ArrayList<Toppings> manejarOpciones(){
         ObservableList<Node> arregloNodos = paneToppings.getChildren();
         ArrayList<Toppings> arregloToppings = new ArrayList<>();
@@ -157,6 +163,7 @@ public class Paso3Controller implements Initializable{
      *
      * @param aniadir El valor a agregar al total.
      */
+    
     public void sumarATotal(double aniadir){
         lbAcumulador.setText("Valor a pagar: "+redondear(App.total+aniadir));
     }   
@@ -166,6 +173,7 @@ public class Paso3Controller implements Initializable{
      *
      * @throws IOException Si ocurre un error al cargar la vista de la siguiente etapa del proceso.
      */
+    
     @FXML
     private void cambiarAPasoPago() throws IOException {
         

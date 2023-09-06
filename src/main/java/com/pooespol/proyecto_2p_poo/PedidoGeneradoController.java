@@ -4,31 +4,21 @@
  */
 package com.pooespol.proyecto_2p_poo;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
 /**
  * Esta clase es el controlador para la ventana que muestra que el pedido ha sido generado con éxito.
  * Implementa la interfaz Initializable y muestra información sobre el pedido y una cuenta regresiva antes de cerrar la ventana.
  */
+
 public class PedidoGeneradoController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
-    
     @FXML
     Label lbPedido1;
     
@@ -44,6 +34,7 @@ public class PedidoGeneradoController implements Initializable {
      * @param url La ubicación relativa de la vista FXML.
      * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lbPedido2.setText(String.valueOf(App.id));
@@ -78,6 +69,7 @@ public class PedidoGeneradoController implements Initializable {
      *
      * @throws IOException Si ocurre un error al cargar la vista del menú principal.
      */
+    
     @FXML
     private void cambiarAMenu() throws IOException {
         App.total=0.00;

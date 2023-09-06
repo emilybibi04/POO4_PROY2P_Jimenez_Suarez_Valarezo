@@ -20,6 +20,7 @@ import java.util.ArrayList;
  * Contiene variables estáticas para el objeto helado, el objeto pedido, y otras configuraciones de la aplicación.
  * También proporciona métodos para cargar las vistas FXML y cambiar la escena principal de la aplicación.
  */
+
 public class App extends Application {
 
     //variables statics para hacer objeto helado
@@ -53,6 +54,7 @@ public class App extends Application {
      * @param s El objeto Stage en el que se muestra la aplicación.
      * @throws IOException Si hay un error al cargar el archivo FXML.
      */
+    
     public void start(Stage s) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Inicio.fxml"));
         Parent root = fxmlLoader.load();
@@ -68,6 +70,7 @@ public class App extends Application {
      * @return Un objeto Parent que representa la vista cargada desde el archivo FXML.
      * @throws IOException Si hay un error al cargar el archivo FXML.
      */
+    
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
@@ -79,6 +82,7 @@ public class App extends Application {
      * @param fxml El nombre del archivo FXML (sin la extensión .fxml) de la nueva vista.
      * @throws IOException Si hay un error al cargar el archivo FXML de la nueva vista.
      */
+    
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
@@ -88,6 +92,7 @@ public class App extends Application {
      *
      * @param args Los argumentos de la línea de comandos (no se utilizan en esta aplicación).
      */
+    
     public static void main(String[] args) {
         launch();
     }

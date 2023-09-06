@@ -36,6 +36,7 @@ import javafx.stage.Stage;
  * Esta clase es el controlador para la ventana de pago de la aplicación.
  * Implementa la interfaz Initializable y gestiona las opciones de pago y la generación de órdenes.
  */
+
 public class PagarController implements Initializable {
 
     @FXML
@@ -105,8 +106,8 @@ public class PagarController implements Initializable {
     private TextField dosF= new TextField();
     private DatePicker tresF= new DatePicker();
     private TextField cuatroF= new TextField();
-    
     private boolean check=true;
+    
     /**
      * Inicializa el controlador cuando se carga la vista correspondiente.
      *
@@ -114,6 +115,7 @@ public class PagarController implements Initializable {
      * @param rb        Un objeto ResourceBundle que se puede utilizar para
      *                  internacionalizar la interfaz de usuario (no se usa en este caso).
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -135,6 +137,7 @@ public class PagarController implements Initializable {
      *
      * @param event El evento de acción que desencadenó este método.
      */
+    
     @FXML
     public void pagarEfectivo(ActionEvent event){
         
@@ -185,6 +188,7 @@ public class PagarController implements Initializable {
      *
      * @param event El evento de acción que desencadenó este método.
      */
+    
     @FXML
     public void pagarTarjeta(ActionEvent event){
         
@@ -242,6 +246,7 @@ public class PagarController implements Initializable {
      * @throws IOException Si ocurre un error al cargar la vista de la ventana de pago.
      * @throws IncompleteFieldsException Si no se llenaron todos los campos necesarios para continuar con la compra.
      */
+    
     @FXML
     private void generarOrden() throws IOException,IncompleteFieldsException {
         
@@ -287,6 +292,7 @@ public class PagarController implements Initializable {
     /**
      * Crea una ventana emergente para confirmar la cancelación de la compra y realizar acciones relacionadas.
      */
+    
     @FXML
     public void crearNuevaVentana() {
         Button bsalir = new Button("Cancelar");
@@ -352,6 +358,7 @@ public class PagarController implements Initializable {
      *
      * @return `true` si los campos están completos y válidos, `false` de lo contrario.
      */
+    
     private boolean camposTarjetaEstanCompletos() {
         // Verificar si las variables de instancia no son nulas y contienen valores válidos
         return unoF != null && dosF != null && tresF != null && cuatroF != null

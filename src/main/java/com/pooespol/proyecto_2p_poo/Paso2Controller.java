@@ -26,6 +26,7 @@ import javafx.scene.text.Text;
  * Esta clase es el controlador para la ventana de selección de sabores en el proceso de pedido.
  * Implementa la interfaz Initializable y gestiona la elección de sabores para el helado.
  */
+
 public class Paso2Controller implements Initializable{
 
     @FXML
@@ -66,6 +67,7 @@ public class Paso2Controller implements Initializable{
      * @param url La ubicación relativa de la vista FXML.
      * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -89,6 +91,7 @@ public class Paso2Controller implements Initializable{
      *
      * @return Una lista de objetos Sabores.
      */
+    
     public ArrayList<Sabores> obtenerSabores(){
         //Obtener información de los archivos
         
@@ -109,6 +112,7 @@ public class Paso2Controller implements Initializable{
      * @param cbxS  El ComboBox de sabores.
      * @param cbxS2 El segundo ComboBox de sabores.
      */
+    
     public void agregarSaboresCombo(ComboBox<Sabores> cbxS,ComboBox<Sabores> cbxS2){        
         ArrayList<Sabores> arreglos = obtenerSabores();
         Collections.sort(arreglos);
@@ -121,6 +125,7 @@ public class Paso2Controller implements Initializable{
      *
      * @param event El evento de selección de ComboBox.
      */
+    
     @FXML
     public void obtenerPrecio(ActionEvent event){
         
@@ -149,6 +154,7 @@ public class Paso2Controller implements Initializable{
      * @param event El evento de acción que desencadenó este método.
      * @throws IOException Si ocurre un error al cargar la vista de la siguiente etapa del proceso.
      */
+    
     @FXML
     private void cambiarAPaso3(ActionEvent event) throws IOException,IncompleteStageException{
         if (total == 0.00) {

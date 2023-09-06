@@ -30,6 +30,7 @@ import javafx.stage.Stage;
  * Implementa la interfaz Initializable y gestiona las interacciones de los usuarios
  * al iniciar sesión.
  */
+
 public class InicioController implements Initializable {
     
     @FXML
@@ -50,6 +51,7 @@ public class InicioController implements Initializable {
      * @param rb        Un objeto ResourceBundle que se puede utilizar para
      *                  internacionalizar la interfaz de usuario (no se usa en este caso).
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -61,6 +63,7 @@ public class InicioController implements Initializable {
      *
      * @throws IOException Si ocurre un error al cargar la vista de la ventana de usuario.
      */
+    
     @FXML
     private void switchVentanaUsuario() throws IOException {
         
@@ -92,6 +95,7 @@ public class InicioController implements Initializable {
     /**
      * Muestra una ventana emergente que contiene una lista de pedidos generados.
      */
+    
     private void mostrarVentanaEmergente() {
         // Crea la ventana emergente
         Stage stage = new Stage();

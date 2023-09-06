@@ -37,6 +37,7 @@ import javafx.stage.Stage;
  * Esta clase es el controlador para la ventana que muestra el resumen del pedido del cliente.
  * Permite al cliente ver los componentes de su pedido, eliminar sabores y confirmar o cancelar el pedido.
  */
+
 public class TuPedidoController implements Initializable {
 
     @FXML
@@ -67,6 +68,7 @@ public class TuPedidoController implements Initializable {
      * @param url La ubicación relativa de la vista FXML.
      * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -100,6 +102,7 @@ public class TuPedidoController implements Initializable {
      *
      * @param event El evento de acción que desencadenó la eliminación.
      */
+    
     private void eliminarSabor(ActionEvent event) {
         // Obtener el elemento seleccionado en la ListView
         lbMsg.setText("");
@@ -133,6 +136,7 @@ public class TuPedidoController implements Initializable {
      *
      * @return El número de sabores en el pedido.
      */
+    
     private int contarSabores() {
         int contadorSabores = 0;
         for (String elemento : elementos) {
@@ -148,6 +152,7 @@ public class TuPedidoController implements Initializable {
      *
      * @param elegido El componente que se eliminó del pedido.
      */
+    
     private void actualizarTotal(String elegido) {
         double menos= 0.0;
         try {
@@ -178,6 +183,7 @@ public class TuPedidoController implements Initializable {
      *
      * @param event El evento de acción que desencadenó la creación de la ventana.
      */
+    
     @FXML
     public void crearNuevaVentana(ActionEvent event) {
         CompletableFuture<Boolean> future = new CompletableFuture<>();
@@ -242,6 +248,7 @@ public class TuPedidoController implements Initializable {
     /**
      * Crea una ventana emergente para confirmar la cancelación del pedido.
      */
+    
     @FXML
     public void crearNuevaVentana2() {
         Button bsalir = new Button("Cancelar");
@@ -303,6 +310,7 @@ public class TuPedidoController implements Initializable {
      *
      * @throws IOException Si ocurre un error al cargar la vista de pago.
      */
+    
     @FXML
     private void cambiarAPasoPago2() throws IOException {
         

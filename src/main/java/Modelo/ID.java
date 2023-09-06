@@ -9,19 +9,30 @@ import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * La clase ID genera identificadores únicos de forma segura.
+ * Utiliza números enteros de cuatro dígitos como identificadores.
+ */
 
 public class ID {
     
     private Set<Integer> generatedCodes;
     private SecureRandom secureRandom;
-    
 
+    /**
+     * Constructor de la clase ID. Inicializa las estructuras de datos y el generador seguro de números aleatorios.
+     */
     
     public ID() {
         generatedCodes = new HashSet<>();
         secureRandom = new SecureRandom();
     }
-    
+
+    /**
+     * Genera un identificador único de cuatro dígitos de manera segura.
+     *
+     * @return El identificador único generado.
+     */
     
     public int generarID() {
         int code;
@@ -31,6 +42,5 @@ public class ID {
         
         return code;
     }
-    
 
 }
