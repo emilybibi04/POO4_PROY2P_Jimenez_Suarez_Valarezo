@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox id="AnchorPane" prefHeight="700.0" prefWidth="1240.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="com.pooespol.proyecto_2p_poo.PedidoGeneradoController">
+   <children>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="250.0" prefWidth="1240.0">
+         <children>
+            <Label fx:id="lbPedido" prefHeight="39.0" prefWidth="606.0" text="Tu pedido es el #4527. Te llamaremos cuando esté listo.">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="100.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="421.0" prefWidth="1240.0">
+         <children>
+            <ImageView fx:id="gif" fitHeight="392.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" prefHeight="120.0" prefWidth="1240.0">
+         <children>
+            <Label fx:id="lbClose" prefHeight="43.0" prefWidth="448.0" text="Esta ventana se cerrará en 4 segundos...">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="100.0" top="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

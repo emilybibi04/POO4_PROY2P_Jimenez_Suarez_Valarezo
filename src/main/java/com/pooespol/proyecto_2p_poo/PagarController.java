@@ -17,11 +17,22 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+
+/**
+ * Esta clase es el controlador para la ventana de pago de la aplicación.
+ * Implementa la interfaz Initializable y gestiona las opciones de pago y la generación de órdenes.
+ */
 public class PagarController implements Initializable {
 
     @FXML
@@ -54,8 +65,17 @@ public class PagarController implements Initializable {
     @FXML 
     Label lbEfectivo;
     
+    /**
+     * Inicializa el controlador cuando se carga la vista correspondiente.
+     *
+     * @param url       La ubicación relativa de la vista FXML.
+     * @param rb        Un objeto ResourceBundle que se puede utilizar para
+     *                  internacionalizar la interfaz de usuario (no se usa en este caso).
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        lbEfectivo.setText("");
         
         lbTotal.setText("0.00");
         
@@ -64,8 +84,15 @@ public class PagarController implements Initializable {
         lbIva.setText("0.00");
         
         lbTotalFinal.setText("0.00");
+        
+        btnCancel.setOnMouseClicked(event -> crearNuevaVentana());
     }
     
+    /**
+     * Realiza el proceso de pago en efectivo y actualiza los campos en la ventana de pago.
+     *
+     * @param event El evento de acción que desencadenó este método.
+     */
     @FXML
     public void pagarEfectivo(ActionEvent event){
         
@@ -86,7 +113,11 @@ public class PagarController implements Initializable {
         
         App.fecha=obtenerFechaActual();
     }
-    
+    /**
+     * Realiza el proceso de pago con tarjeta y actualiza los campos en la ventana de pago.
+     *
+     * @param event El evento de acción que desencadenó este método.
+     */
     @FXML
     public void pagarTarjeta(ActionEvent event){
     
@@ -105,9 +136,17 @@ public class PagarController implements Initializable {
         lbTotalFinal.setText(String.valueOf(ftotal));
         
         App.tipo='C';
+        
+        
  
     }
     
+    /**
+     * Genera una orden de pago y realiza las acciones necesarias después de realizar el pago.
+     *
+     * @throws IOException Si ocurre un error al cargar la vista de la ventana de pago.
+     * @throws IncompleteFieldsException Si no se llenaron todos los campos necesarios para continuar con la compra.
+     */
     @FXML
     private void generarOrden() throws IOException,IncompleteFieldsException {
         
@@ -138,8 +177,65 @@ public class PagarController implements Initializable {
                 App.pgenerados.add(part[2]+", "+part[1]);
             }
         
-            //App.setRoot(""); poner la ultima escena
+            App.setRoot("PedidoGenerado"); 
         }
     }
-   
+    
+    /**
+     * Crea una ventana emergente para confirmar la cancelación de la compra y realizar acciones relacionadas.
+     */
+    @FXML
+    public void crearNuevaVentana() {
+        Button bsalir = new Button("Cancelar");
+
+        bsalir.setOnMouseClicked(e -> {
+            Stage s = (Stage) bsalir.getScene().getWindow();
+            s.close();
+        });
+
+        Button baccept = new Button("Aceptar");
+
+        baccept.setOnMouseClicked(e -> {
+            Stage s = (Stage) baccept.getScene().getWindow();
+            s.close();
+            try {
+                App.total=0.00;
+                App.basehelado=null;
+                App.saboreshelado.clear();
+                if (App.toppingshelado!=null){
+                    App.toppingshelado.clear();
+                }
+                App.id=0;
+                App.idpago=0;
+                App.totalPagar=0.00;
+                App.tipo = '\u0000';
+                App.setRoot("VentanaUsuario");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        Label l1 = new Label("¿Está seguro de cancelar su compra?");
+
+        VBox detalle = new VBox();
+        HBox botones = new HBox();
+
+        botones.getChildren().addAll(baccept, bsalir);
+        botones.setPadding(new Insets(5, 5, 5, 5));
+        botones.setAlignment(Pos.CENTER);
+        botones.setSpacing(30);
+        
+        detalle.getChildren().addAll(l1, botones);
+
+        detalle.setAlignment(Pos.CENTER);
+        detalle.setSpacing(10);
+        detalle.setPadding(new Insets(5, 5, 5, 5));
+        detalle.setStyle("-fx-background-color: #ffe0ff;");
+
+        Scene s = new Scene(detalle, 350, 200);
+        Stage stage = new Stage();
+        stage.setScene(s);
+        stage.setTitle("Mensaje");
+        stage.show();
+    }  
 }

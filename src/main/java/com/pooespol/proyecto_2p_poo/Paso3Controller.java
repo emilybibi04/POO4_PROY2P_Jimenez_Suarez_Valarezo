@@ -5,6 +5,7 @@
 
 package com.pooespol.proyecto_2p_poo;
 
+import static Modelo.Readable.redondear;
 import Modelo.Toppings;
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +27,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * Esta clase es el controlador para la ventana de selección de toppings en el proceso de pedido.
+ * Implementa la interfaz Initializable y gestiona la elección de toppings para el helado.
+ */
 public class Paso3Controller implements Initializable{
 
     @FXML
@@ -47,6 +52,12 @@ public class Paso3Controller implements Initializable{
     
     private double total2;
 
+    /**
+     * Inicializa el controlador cuando se carga la vista correspondiente.
+     *
+     * @param url La ubicación relativa de la vista FXML.
+     * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -61,7 +72,11 @@ public class Paso3Controller implements Initializable{
     }    
    
     
-    //obtener Toppings
+    /**
+     * Obtiene una lista de objetos Toppings a partir de los datos cargados desde el archivo.
+     *
+     * @return Una lista de objetos Toppings.
+     */
     public ArrayList<Toppings> obtenerToppings(){
         ArrayList<String> datos=null;
         try {
@@ -80,7 +95,9 @@ public class Paso3Controller implements Initializable{
         return arregloToppings;
     }
     
-    //crear nodos para las funciones
+    /**
+     * Crea nodos CheckBox para las opciones de toppings y los agrega al panel de toppings.
+     */
     public void agregarOpciones(){
         ArrayList<Toppings> arregloToppings = obtenerToppings();
         
@@ -93,7 +110,9 @@ public class Paso3Controller implements Initializable{
         }
     }
 
-    //Agregar Evento
+    /**
+     * Agrega eventos a los CheckBox para manejar las selecciones de toppings.
+     */
     public void agregarEventoCB(){
         
         ObservableList<Node> arregloNodos = paneToppings.getChildren();
@@ -109,7 +128,11 @@ public class Paso3Controller implements Initializable{
         }
     }
     
-    //Manejar Opciones
+    /**
+     * Maneja las selecciones de los CheckBox para obtener los toppings seleccionados.
+     *
+     * @return Una lista de toppings seleccionados.
+     */
     public ArrayList<Toppings> manejarOpciones(){
         ObservableList<Node> arregloNodos = paneToppings.getChildren();
         ArrayList<Toppings> arregloToppings = new ArrayList<>();
@@ -129,11 +152,20 @@ public class Paso3Controller implements Initializable{
         return arregloToppings;
     }
     
-    //sumar a total
+    /**
+     * Suma el valor de los toppings al total a pagar y actualiza la etiqueta correspondiente.
+     *
+     * @param aniadir El valor a agregar al total.
+     */
     public void sumarATotal(double aniadir){
-        lbAcumulador.setText("Valor a pagar: "+(App.total+aniadir));
+        lbAcumulador.setText("Valor a pagar: "+redondear(App.total+aniadir));
     }   
     
+    /**
+     * Cambia a la siguiente etapa del proceso de pedido (TuPedido) después de seleccionar los toppings.
+     *
+     * @throws IOException Si ocurre un error al cargar la vista de la siguiente etapa del proceso.
+     */
     @FXML
     private void cambiarAPasoPago() throws IOException {
         

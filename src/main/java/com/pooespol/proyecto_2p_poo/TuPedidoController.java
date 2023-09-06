@@ -32,6 +32,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+/**
+ * Esta clase es el controlador para la ventana que muestra el resumen del pedido del cliente.
+ * Permite al cliente ver los componentes de su pedido, eliminar sabores y confirmar o cancelar el pedido.
+ */
 public class TuPedidoController implements Initializable {
 
     @FXML
@@ -56,7 +61,12 @@ public class TuPedidoController implements Initializable {
     
     private boolean check = false;
 
-    
+    /**
+     * Inicializa el controlador cuando se carga la vista correspondiente.
+     *
+     * @param url La ubicación relativa de la vista FXML.
+     * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -84,35 +94,45 @@ public class TuPedidoController implements Initializable {
         btnCancelar.setOnMouseClicked(event -> crearNuevaVentana2());
 
     }
-
+    
+    /**
+     * Maneja la eliminación de sabores del pedido.
+     *
+     * @param event El evento de acción que desencadenó la eliminación.
+     */
     private void eliminarSabor(ActionEvent event) {
-    // Obtener el elemento seleccionado en la ListView
-    lbMsg.setText("");
-            
-    String selectedElement = lista.getSelectionModel().getSelectedItem();
+        // Obtener el elemento seleccionado en la ListView
+        lbMsg.setText("");
 
-    if (selectedElement != null && selectedElement.startsWith("Sabor: ")) {
-        // Verificar que haya al menos dos sabores presentes antes de eliminar uno
-        if (contarSabores() >= 2) {
-            // Mostrar la ventana emergente y esperar hasta que se cierre
-            crearNuevaVentana(event);
+        String selectedElement = lista.getSelectionModel().getSelectedItem();
 
-            // Comprobar el resultado de la ventana emergente
-            if (check) {
-                // Si se hizo clic en "Aceptar", eliminar el sabor seleccionado
-                elementos.remove(selectedElement);
-                actualizarTotal(selectedElement);
-            } 
+        if (selectedElement != null && selectedElement.startsWith("Sabor: ")) {
+            // Verificar que haya al menos dos sabores presentes antes de eliminar uno
+            if (contarSabores() >= 2) {
+                // Mostrar la ventana emergente y esperar hasta que se cierre
+                crearNuevaVentana(event);
+
+                // Comprobar el resultado de la ventana emergente
+                if (check) {
+                    // Si se hizo clic en "Aceptar", eliminar el sabor seleccionado
+                    elementos.remove(selectedElement);
+                    actualizarTotal(selectedElement);
+                } 
+            } else {
+                // Mostrar un mensaje de error si no hay suficientes sabores
+                lbMsg.setText("Tiene que haber mínimo un sabor");
+            }
         } else {
-            // Mostrar un mensaje de error si no hay suficientes sabores
-            lbMsg.setText("Tiene que haber mínimo un sabor");
+            // Mostrar un mensaje de error si el elemento no es un sabor
+            lbMsg.setText("Solo se pueden eliminar sabores");
         }
-    } else {
-        // Mostrar un mensaje de error si el elemento no es un sabor
-        lbMsg.setText("Solo se pueden eliminar sabores");
     }
-}
-    //metodo para saber si los sabores del ListView
+    
+    /**
+     * Cuenta la cantidad de sabores presentes en la lista de elementos del pedido.
+     *
+     * @return El número de sabores en el pedido.
+     */
     private int contarSabores() {
         int contadorSabores = 0;
         for (String elemento : elementos) {
@@ -122,7 +142,12 @@ public class TuPedidoController implements Initializable {
         }
         return contadorSabores;
     }
-
+    
+    /**
+     * Actualiza el total del pedido al eliminar un componente.
+     *
+     * @param elegido El componente que se eliminó del pedido.
+     */
     private void actualizarTotal(String elegido) {
         double menos= 0.0;
         try {
@@ -148,6 +173,11 @@ public class TuPedidoController implements Initializable {
         lbPagar.setText("Valor a pagar: " + App.total);
     }
     
+    /**
+     * Crea una nueva ventana emergente de confirmación antes de eliminar un componente del pedido.
+     *
+     * @param event El evento de acción que desencadenó la creación de la ventana.
+     */
     @FXML
     public void crearNuevaVentana(ActionEvent event) {
         CompletableFuture<Boolean> future = new CompletableFuture<>();
@@ -206,7 +236,9 @@ public class TuPedidoController implements Initializable {
     }
     
 
-    
+    /**
+     * Crea una ventana emergente para confirmar la cancelación del pedido.
+     */
     @FXML
     public void crearNuevaVentana2() {
         Button bsalir = new Button("Cancelar");
@@ -225,7 +257,9 @@ public class TuPedidoController implements Initializable {
                 App.total=0.00;
                 App.basehelado=null;
                 App.saboreshelado.clear();
-                App.toppingshelado.clear();
+                if (App.toppingshelado!=null){
+                    App.toppingshelado.clear();
+                }
                 App.setRoot("VentanaUsuario");
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -256,6 +290,11 @@ public class TuPedidoController implements Initializable {
         stage.show();
     }
     
+    /**
+     * Cambia a la vista de pago después de confirmar el pedido.
+     *
+     * @throws IOException Si ocurre un error al cargar la vista de pago.
+     */
     @FXML
     private void cambiarAPasoPago2() throws IOException {
         

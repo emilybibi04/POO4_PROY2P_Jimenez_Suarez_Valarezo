@@ -22,6 +22,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
+/**
+ * Esta clase es el controlador para la ventana de selección de la base de helado en el proceso de pedido.
+ * Implementa la interfaz Initializable y gestiona la elección de la base de helado por parte del usuario.
+ */
 public class Paso1Controller implements Initializable{
     private static Scene scene;
     @FXML
@@ -54,10 +59,12 @@ public class Paso1Controller implements Initializable{
     
     @FXML
     private Label errorLabel;
+    
     /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
+     * Inicializa el controlador cuando se carga la vista correspondiente.
+     *
+     * @param url La ubicación relativa de la vista FXML.
+     * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,7 +77,12 @@ public class Paso1Controller implements Initializable{
             ex.printStackTrace();
         }
     }    
-
+    
+    /**
+     * Maneja la acción de seleccionar una base de helado.
+     *
+     * @param event El evento de acción que desencadenó este método.
+     */
     @FXML
     private void seleccionarBoton(ActionEvent event) {
         errorLabel.setText("");
@@ -91,7 +103,12 @@ public class Paso1Controller implements Initializable{
         
     }
     
-    
+    /**
+     * Cambia a la siguiente etapa del proceso de pedido (Paso 2) después de seleccionar una base de helado.
+     *
+     * @param event El evento de acción que desencadenó este método.
+     * @throws IOException Si ocurre un error al cargar la vista de la siguiente etapa del proceso.
+     */
     @FXML
     private void cambiarAPaso2(ActionEvent event) throws IOException,IncompleteStageException{
         if (baseSeleccionada == null) {

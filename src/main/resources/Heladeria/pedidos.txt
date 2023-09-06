@@ -3,3 +3,6 @@ IDpedido,nombreCliente,total
 4891,P,6.0
 9091,P,7.0
 5817,P,6.0
+6726,P,8.0
+2227,P,6.3
+8320,P,7.8

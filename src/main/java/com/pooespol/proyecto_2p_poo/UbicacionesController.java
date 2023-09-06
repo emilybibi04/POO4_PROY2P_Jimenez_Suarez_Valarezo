@@ -28,6 +28,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+/**
+ * Esta clase es el controlador para la vista que muestra las ubicaciones de locales en un plano.
+ * Permite al usuario ver la ubicación de los locales y obtener detalles sobre cada uno de ellos.
+ */
 public class UbicacionesController implements Initializable {
     
     @FXML
@@ -36,6 +41,12 @@ public class UbicacionesController implements Initializable {
     @FXML
     private Button btnCerrarr;
     
+    /**
+     * Inicializa el controlador cuando se carga la vista correspondiente.
+     *
+     * @param url La ubicación relativa de la vista FXML.
+     * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -61,8 +72,13 @@ public class UbicacionesController implements Initializable {
             ex.printStackTrace();
         }
         
-    }  
+    }
     
+    /**
+     * Muestra los detalles de una ubicación cuando se hace clic en su representación en el plano.
+     *
+     * @param u El objeto de ubicación para el cual se mostrarán los detalles.
+     */
     private void mostrarDetallesUbicacion(Ubicacion u) {
         ImageView i = new ImageView();
         try(FileInputStream input = new FileInputStream(App.path + "Logo_Posicion.png")){
@@ -178,6 +194,11 @@ public class UbicacionesController implements Initializable {
         }
     }
     
+    /**
+     * Cierra la vista actual y regresa a la vista principal del usuario.
+     *
+     * @throws IOException Si ocurre un error al cargar la vista principal del usuario.
+     */
     @FXML
     private void close() throws IOException {
         App.setRoot("VentanaUsuario");

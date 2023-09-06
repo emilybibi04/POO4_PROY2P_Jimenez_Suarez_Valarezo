@@ -13,14 +13,21 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+/**
+ * Esta clase es el controlador para la vista principal del usuario.
+ * Proporciona funcionalidad para mostrar la bienvenida al usuario, su nombre y opciones para navegar a otras vistas.
+ */
 public class VentanaUsuarioController implements Initializable {
     
     @FXML
@@ -28,7 +35,16 @@ public class VentanaUsuarioController implements Initializable {
     
     @FXML
     Label lblNombre;
+    
+    @FXML 
+    Button btnSalir;
       
+    /**
+     * Inicializa el controlador cuando se carga la vista correspondiente.
+     *
+     * @param url La ubicación relativa de la vista FXML.
+     * @param rb  Un objeto ResourceBundle que se puede utilizar para internacionalizar la interfaz de usuario (no se usa en este caso).
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         String genero = App.cliente.getGenero();
@@ -39,66 +55,39 @@ public class VentanaUsuarioController implements Initializable {
             lblBienvenido.setText("B I E N V E N I D O");
         lblNombre.setText(App.cliente.getName());
         
-        //actuualizar lista de pedidos generados
-        ArrayList<String> op = leerArchivo(App.pathH + "pagos.txt");
-        op.remove(0);
-        for (String a: op){
-            String[] part = a.trim().split(",");
-            App.pgenerados.add(part[2] + ", " + part[1]);
-        }
-        mostrarVentanaEmergente();
-        
     }    
     
+    /**
+     * Cambia a la vista de ubicaciones cuando se hace clic en el botón correspondiente.
+     *
+     * @throws IOException Si ocurre un error al cargar la vista de ubicaciones.
+     */
     @FXML
     private void switchUbicaciones() throws IOException {
         App.setRoot("Ubicaciones");
     }
     
+    /**
+     * Cambia a la vista de configuración de helado cuando se hace clic en el botón correspondiente.
+     *
+     * @throws IOException Si ocurre un error al cargar la vista de configuración de helado.
+     */
     @FXML
     private void switchHelado() throws IOException {
         App.setRoot("Paso1");
     }
     
-    private void mostrarVentanaEmergente() {
-        // Crea la ventana emergente
-        Stage stage = new Stage();
-        stage.setTitle("Pedidos Generados");
-
-        // Crea un ListView en la ventana emergente
-        ListView<String> listView = new ListView<>();
-        ObservableList<String> items = FXCollections.observableArrayList(App.pgenerados);
-        listView.setItems(items);
-
-        // Crea un VBox para contener el ListView
-        VBox vbox = new VBox(listView);
-
-        // Crea la escena y agrega el VBox
-        Scene scene = new Scene(vbox, 300, 400);
-        stage.setScene(scene);
-
-        // Muestra la ventana emergente
-        stage.show();
-
-        // Crear y ejecutar un hilo para la actualización de la ventana emergente
-        Thread actualizacionVentanaThread = new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(5 * 1000); // Espera 5 segundos
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                Platform.runLater(() -> {
-                    // Actualizar los datos del ListView en la ventana emergente
-                    items.setAll(App.pgenerados);
-                });
-            }
-        });
-
-        actualizacionVentanaThread.setDaemon(true);
-        actualizacionVentanaThread.start();
+    /**
+     * Cierra la aplicación cuando se hace clic en el botón "Salir".
+     *
+     * @param event El evento de acción generado por hacer clic en el botón.
+     */
+    @FXML
+    void salir(ActionEvent event) {
+       
+        Stage s=(Stage)btnSalir.getScene().getWindow();
+        s.close();
+       
     }
-    
     
 }
