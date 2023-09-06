@@ -12,6 +12,7 @@ import static Modelo.Readable.obtenerFechaActual;
 import static Modelo.Readable.redondear;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -70,6 +71,12 @@ public class PagarController implements Initializable {
     @FXML
     VBox VBoxContenido;
     
+    private TextField unoF;
+    private TextField dosF;
+    private DatePicker tresF;
+    private TextField cuatroF;
+    
+    private boolean check=true;
     /**
      * Inicializa el controlador cuando se carga la vista correspondiente.
      *
@@ -101,6 +108,8 @@ public class PagarController implements Initializable {
     @FXML
     public void pagarEfectivo(ActionEvent event){
         
+        VBoxContenido.getChildren().clear();
+        
         lbEfectivo.setText("Acércate a Caja para pagar tu pedido");
         
         double tot=redondear(App.total);
@@ -125,7 +134,9 @@ public class PagarController implements Initializable {
      */
     @FXML
     public void pagarTarjeta(ActionEvent event){
-    
+        
+        VBoxContenido.getChildren().clear();
+        
         lbEfectivo.setText("");
         
         double tot=redondear(App.total);
@@ -141,6 +152,66 @@ public class PagarController implements Initializable {
         lbTotalFinal.setText(String.valueOf(ftotal));
         
         App.tipo='C';
+        
+        Label nomTarjeta = new Label("Datos de la Tarjeta");
+        nomTarjeta.setStyle("-fx-font-family: Bogart Trial; -fx-font-weight: Bold");
+        nomTarjeta.setPrefWidth(500);
+
+        VBox vTarjeta = new VBox();
+        vTarjeta.setPrefWidth(500);
+        vTarjeta.setPrefHeight(241);
+        vTarjeta.setStyle("-fx-background-color:  #4D846B");
+
+        HBox uno = new HBox();
+        uno.setPrefWidth(444);
+        uno.setPrefHeight(44);
+        Label unoL = new Label("Nombre:");
+        unoL.setPrefWidth(173);
+        unoL.setPrefHeight(26);
+        unoL.setAlignment(Pos.CENTER_LEFT);
+        unoF = new TextField();
+        unoF.setPrefWidth(270);
+        unoF.setPrefHeight(30);
+        uno.getChildren().addAll(unoL, unoF);
+
+        HBox dos = new HBox();
+        dos.setPrefWidth(444);
+        dos.setPrefHeight(44);
+        Label dosL = new Label("Número:");
+        dosL.setPrefWidth(173);
+        dosL.setPrefHeight(26);
+        dosL.setAlignment(Pos.CENTER_LEFT);
+        dosF = new TextField();
+        dosF.setPrefWidth(270);
+        dosF.setPrefHeight(30);
+        dos.getChildren().addAll(dosL, dosF);
+
+        HBox tres = new HBox();
+        tres.setPrefWidth(444);
+        tres.setPrefHeight(44);
+        Label tresL = new Label("Fecha Caducidad:");
+        tresL.setPrefWidth(173);
+        tresL.setPrefHeight(26);
+        tresL.setAlignment(Pos.CENTER_LEFT);
+        tresF = new DatePicker();
+        tresF.setPrefWidth(270);
+        tresF.setPrefHeight(30);
+        tres.getChildren().addAll(tresL, tresF);
+
+        HBox cuatro = new HBox();
+        cuatro.setPrefWidth(444);
+        cuatro.setPrefHeight(44);
+        Label cuatroL = new Label("CVV:");
+        cuatroL.setPrefWidth(173);
+        cuatroL.setPrefHeight(26);
+        cuatroL.setAlignment(Pos.CENTER_LEFT);
+        cuatroF = new TextField();
+        cuatroF.setPrefWidth(270);
+        cuatroF.setPrefHeight(30);
+        cuatro.getChildren().addAll(cuatroL, cuatroF);
+
+        vTarjeta.getChildren().addAll(uno, dos, tres, cuatro);
+        VBoxContenido.getChildren().addAll(vTarjeta);
         
         
  
@@ -161,88 +232,36 @@ public class PagarController implements Initializable {
             } catch (IncompleteFieldsException e) {
                 lbEfectivo.setText(e.getMessage());
             }
-        }
-        else{
-            App.totalPagar=Double.parseDouble(lbTotalFinal.getText());
-            
-            ID generador = new ID();
-            int pid = generador.generarID();
-            App.idpago=pid;
-            
-            App.fecha=obtenerFechaActual();
-            
-            App.pedido.generarTransaccion();
-            
-            //actualizar lista de pedidos generados
-            ArrayList<String> op = leerArchivo(App.pathH+"pagos.txt");
-            op.remove(0);
-            App.pgenerados= new ArrayList<>();
-            for (String a: op){
-                String[] part = a.trim().split(",");
-                App.pgenerados.add(part[2]+", "+part[1]);
+        } else {
+            check = camposTarjetaEstanCompletos();
+            if (!check) {
+                try {
+                    throw new IncompleteFieldsException("Rellene los datos de su tarjeta");
+                } catch (IncompleteFieldsException e) {
+                    lbEfectivo.setText(e.getMessage());
+                }
+            } else {
+                App.totalPagar = Double.parseDouble(lbTotalFinal.getText());
+
+                ID generador = new ID();
+                int pid = generador.generarID();
+                App.idpago = pid;
+
+                App.fecha = obtenerFechaActual();
+
+                App.pedido.generarTransaccion();
+
+                // Actualizar lista de pedidos generados
+                ArrayList<String> op = leerArchivo(App.pathH + "pagos.txt");
+                op.remove(0);
+                App.pgenerados = new ArrayList<>();
+                for (String a : op) {
+                    String[] part = a.trim().split(",");
+                    App.pgenerados.add(part[2] + ", " + part[1]);
+                }
+
+                App.setRoot("PedidoGenerado");
             }
-        
-            App.setRoot("PedidoGenerado");
-            
-            Label nomTarjeta = new Label("Datos de la Tarjeta");
-            nomTarjeta.setStyle("-fx-font-family: Bogart Trial; -fx-font-weight: Bold");
-            nomTarjeta.setPrefWidth(500);
-
-            VBox vTarjeta = new VBox();
-            vTarjeta.setPrefWidth(500);
-            vTarjeta.setPrefHeight(241);
-            vTarjeta.setStyle("-fx-background-color:  #4D846B");
-
-            HBox uno = new HBox();
-            uno.setPrefWidth(444);
-            uno.setPrefHeight(44);
-            Label unoL = new Label("Nombre:");
-            unoL.setPrefWidth(173);
-            unoL.setPrefHeight(26);
-            unoL.setAlignment(Pos.CENTER_LEFT);
-            TextField unoF = new TextField();
-            unoF.setPrefWidth(270);
-            unoF.setPrefHeight(30);
-            uno.getChildren().addAll(unoL, unoF);
-
-            HBox dos = new HBox();
-            dos.setPrefWidth(444);
-            dos.setPrefHeight(44);
-            Label dosL = new Label("Número:");
-            dosL.setPrefWidth(173);
-            dosL.setPrefHeight(26);
-            dosL.setAlignment(Pos.CENTER_LEFT);
-            TextField dosF = new TextField();
-            dosF.setPrefWidth(270);
-            dosF.setPrefHeight(30);
-            dos.getChildren().addAll(dosL, dosF);
-
-            HBox tres = new HBox();
-            tres.setPrefWidth(444);
-            tres.setPrefHeight(44);
-            Label tresL = new Label("Fecha Caducidad:");
-            tresL.setPrefWidth(173);
-            tresL.setPrefHeight(26);
-            tresL.setAlignment(Pos.CENTER_LEFT);
-            DatePicker tresF = new DatePicker();
-            tresF.setPrefWidth(270);
-            tresF.setPrefHeight(30);
-            tres.getChildren().addAll(tresL, tresF);
-
-            HBox cuatro = new HBox();
-            cuatro.setPrefWidth(444);
-            cuatro.setPrefHeight(44);
-            Label cuatroL = new Label("CVV:");
-            cuatroL.setPrefWidth(173);
-            cuatroL.setPrefHeight(26);
-            cuatroL.setAlignment(Pos.CENTER_LEFT);
-            TextField cuatroF = new TextField();
-            cuatroF.setPrefWidth(270);
-            cuatroF.setPrefHeight(30);
-            cuatro.getChildren().addAll(cuatroL, cuatroF);
-            
-            vTarjeta.getChildren().addAll(uno, dos, tres, cuatro);
-            VBoxContenido.getChildren().addAll(vTarjeta);
         }
     }
     
@@ -303,4 +322,11 @@ public class PagarController implements Initializable {
         stage.setTitle("Mensaje");
         stage.show();
     }  
+    
+    private boolean camposTarjetaEstanCompletos() {
+        // Verificar si las variables de instancia no son nulas y contienen valores válidos
+        return unoF != null && dosF != null && tresF != null && cuatroF != null
+                && !unoF.getText().isEmpty() && !dosF.getText().isEmpty()
+                && tresF.getValue() != null && !cuatroF.getText().isEmpty();
+    }
 }
