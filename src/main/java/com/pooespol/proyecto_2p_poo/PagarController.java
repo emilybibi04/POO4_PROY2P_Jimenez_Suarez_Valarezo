@@ -138,7 +138,24 @@ public class PagarController implements Initializable {
     @FXML
     public void pagarEfectivo(ActionEvent event){
         
-        VBoxContenido.getChildren().clear();
+        VBoxContenido.setVisible(false);
+        if (h1.getChildren().size() > 1) {
+            h1.getChildren().remove(1); 
+        }
+        if (h2.getChildren().size() > 1) {
+            h2.getChildren().remove(1);
+        }
+        if (h3.getChildren().size() > 1) {
+            h3.getChildren().remove(1); 
+        }
+        if (h3.getChildren().size() > 1) {
+            h3.getChildren().remove(1); 
+        }
+        if (h4.getChildren().size() > 1) {
+            h4.getChildren().remove(1); 
+        }
+        
+        
         
         lbEfectivo.setText("Acércate a Caja para pagar tu pedido");
         
@@ -170,6 +187,8 @@ public class PagarController implements Initializable {
      */
     @FXML
     public void pagarTarjeta(ActionEvent event){
+        
+        VBoxContenido.setVisible(true);
         
         lbEfectivo.setText("");
         
@@ -228,7 +247,7 @@ public class PagarController implements Initializable {
         
         if (App.tipo == '\u0000') {
             try {
-                throw new IncompleteFieldsException("No ha llenado todos los campos necesarios para continuar con su compra");
+                throw new IncompleteFieldsException("Complete todos los campos para continuar la compra.");
             } catch (IncompleteFieldsException e) {
                 lbEfectivo.setText(e.getMessage());
             }
