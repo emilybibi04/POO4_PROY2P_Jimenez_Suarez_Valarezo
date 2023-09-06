@@ -183,15 +183,15 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="581.0" spacing="25.0">
                <children>
-                  <Button fx:id="btnConf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generarOrden" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Confirmar" textFill="#366952">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                  <Button fx:id="btnCancel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Cancelar" textFill="#366952">
                      <font>
                         <Font name="Avenir Next Bold" size="28.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnCancel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Cancelar" textFill="#366952">
+                  <Button fx:id="btnConf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generarOrden" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Confirmar" textFill="#366952">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                      <font>
                         <Font name="Avenir Next Bold" size="28.0" />
                      </font>

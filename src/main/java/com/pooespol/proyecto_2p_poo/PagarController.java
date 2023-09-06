@@ -119,13 +119,13 @@ public class PagarController implements Initializable {
         
         lbEfectivo.setText("");
         
-        lbTotal.setText("0.00");
+        lbTotal.setText("  0.00");
         
-        lbAdTarjeta.setText("0.00");
+        lbAdTarjeta.setText("  0.00");
         
-        lbIva.setText("0.00");
+        lbIva.setText("  0.00");
         
-        lbTotalFinal.setText("0.00");
+        lbTotalFinal.setText("  0.00");
         
         btnCancel.setOnMouseClicked(event -> crearNuevaVentana());
     }
@@ -160,15 +160,15 @@ public class PagarController implements Initializable {
         lbEfectivo.setText("Acércate a Caja para pagar tu pedido");
         
         double tot=redondear(App.total);
-        lbTotal.setText(String.valueOf(tot));
+        lbTotal.setText("  " + String.valueOf(tot));
         
-        lbAdTarjeta.setText("0.00");
+        lbAdTarjeta.setText("  " + "0.00");
         
         double iva= redondear(App.total*0.12);
-        lbIva.setText(String.valueOf(iva));
+        lbIva.setText("  " + String.valueOf(iva));
         
         double ftotal=redondear(tot+iva);
-        lbTotalFinal.setText(String.valueOf(ftotal));
+        lbTotalFinal.setText("  " + String.valueOf(ftotal));
         
         App.tipo ='E';
         
@@ -193,16 +193,16 @@ public class PagarController implements Initializable {
         lbEfectivo.setText("");
         
         double tot=redondear(App.total);
-        lbTotal.setText(String.valueOf(tot));
+        lbTotal.setText("  " + String.valueOf(tot));
         
         double tarjeta= redondear(App.total*0.10);
-        lbAdTarjeta.setText(String.valueOf(tarjeta));
+        lbAdTarjeta.setText("  " + String.valueOf(tarjeta));
         
         double iva= redondear((tot+tarjeta)*0.12);
-        lbIva.setText(String.valueOf(iva));
+        lbIva.setText("  " + String.valueOf(iva));
         
         double ftotal=redondear(tot+iva+tarjeta);
-        lbTotalFinal.setText(String.valueOf(ftotal));
+        lbTotalFinal.setText("  " + String.valueOf(ftotal));
         
         App.tipo='C';
         
@@ -247,7 +247,7 @@ public class PagarController implements Initializable {
         
         if (App.tipo == '\u0000') {
             try {
-                throw new IncompleteFieldsException("Complete todos los campos para continuar la compra.");
+                throw new IncompleteFieldsException("Complete todos los campos para continuar la compra");
             } catch (IncompleteFieldsException e) {
                 lbEfectivo.setText(e.getMessage());
             }
@@ -290,14 +290,14 @@ public class PagarController implements Initializable {
     @FXML
     public void crearNuevaVentana() {
         Button bsalir = new Button("Cancelar");
-
+        bsalir.setStyle("-fx-background-color: white; -fx-font-family: 'Avenir Next'; -fx-text-fill: #366952; -fx-font-size: 16px");
         bsalir.setOnMouseClicked(e -> {
             Stage s = (Stage) bsalir.getScene().getWindow();
             s.close();
         });
 
         Button baccept = new Button("Aceptar");
-
+        baccept.setStyle("-fx-background-color: white; -fx-font-family: 'Avenir Next'; -fx-text-fill: #366952; -fx-font-size: 16px");
         baccept.setOnMouseClicked(e -> {
             Stage s = (Stage) baccept.getScene().getWindow();
             s.close();
@@ -318,9 +318,15 @@ public class PagarController implements Initializable {
             }
         });
 
-        Label l1 = new Label("¿Está seguro de cancelar su compra?");
-
+        Label l1 = new Label("¿Está seguro de");
+        l1.setStyle("-fx-font-family: 'Avenir Next'; -fx-font-weight: bold; -fx-font-size: 22px; -fx-text-fill: white");
+        
+        Label l2 = new Label("cancelar su compra?");
+        l2.setStyle("-fx-font-family: 'Avenir Next'; -fx-font-weight: bold; -fx-font-size: 22px; -fx-text-fill: white");
+        
         VBox detalle = new VBox();
+        VBox espacio = new VBox();
+        espacio.setPrefHeight(15);
         HBox botones = new HBox();
 
         botones.getChildren().addAll(baccept, bsalir);
@@ -328,14 +334,13 @@ public class PagarController implements Initializable {
         botones.setAlignment(Pos.CENTER);
         botones.setSpacing(30);
         
-        detalle.getChildren().addAll(l1, botones);
+        detalle.getChildren().addAll(l1, l2, espacio, botones);
 
         detalle.setAlignment(Pos.CENTER);
-        detalle.setSpacing(10);
-        detalle.setPadding(new Insets(5, 5, 5, 5));
-        detalle.setStyle("-fx-background-color: #ffe0ff;");
+        detalle.setPadding(new Insets(-12, -12, -12, -12));
+        detalle.setStyle("-fx-background-color: #8EBD88;");
 
-        Scene s = new Scene(detalle, 350, 200);
+        Scene s = new Scene(detalle, 420, 250);
         Stage stage = new Stage();
         stage.setScene(s);
         stage.setTitle("Mensaje");

@@ -2,3 +2,8 @@ IDpedido,nombreCliente,total
 4329,PATRICIA,5.0
 9311,P,8.0
 4841,P,5.0
+7025,P,5.0
+2247,P,4.0
+3684,P,7.0
+6667,P,7.0
+8156,P,7.0
