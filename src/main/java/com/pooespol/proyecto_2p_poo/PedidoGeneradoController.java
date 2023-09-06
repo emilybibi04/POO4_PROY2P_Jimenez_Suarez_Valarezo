@@ -28,13 +28,13 @@ public class PedidoGeneradoController implements Initializable {
      */
     
     @FXML
-    Label lbPedido;
+    Label lbPedido1;
+    
+    @FXML
+    Label lbPedido2;
     
     @FXML
     Label lbClose;
-    
-    @FXML
-    ImageView gif;
     
     /**
      * Inicializa el controlador cuando se carga la vista correspondiente.
@@ -44,7 +44,7 @@ public class PedidoGeneradoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        lbPedido.setText("Tu pedido es el " + App.id + ". Te llamaremos cuando esté listo.");
+        lbPedido2.setText(String.valueOf(App.id));
         
         
         

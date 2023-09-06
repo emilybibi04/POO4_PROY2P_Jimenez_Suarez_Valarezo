@@ -8,3 +8,6 @@ IDpedido,nombreCliente,total
 8320,P,7.8
 1910,P,8.0
 4489,P,5.5
+1572,P,8.0
+1740,P,6.0
+6058,P,6.0

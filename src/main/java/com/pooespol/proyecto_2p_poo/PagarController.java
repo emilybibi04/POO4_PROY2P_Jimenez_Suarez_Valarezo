@@ -211,6 +211,8 @@ public class PagarController implements Initializable {
         cuatro.getChildren().addAll(cuatroL, cuatroF);
 
         vTarjeta.getChildren().addAll(uno, dos, tres, cuatro);
+        VBoxContenido.setPrefWidth(595);
+        VBoxContenido.setPrefHeight(281);
         VBoxContenido.getChildren().addAll(vTarjeta);
         
         
