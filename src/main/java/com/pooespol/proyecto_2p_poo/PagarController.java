@@ -323,6 +323,11 @@ public class PagarController implements Initializable {
         stage.show();
     }  
     
+    /**
+     * Verifica si los campos de tarjeta de crédito están completos y válidos.
+     *
+     * @return `true` si los campos están completos y válidos, `false` de lo contrario.
+     */
     private boolean camposTarjetaEstanCompletos() {
         // Verificar si las variables de instancia no son nulas y contienen valores válidos
         return unoF != null && dosF != null && tresF != null && cuatroF != null
