@@ -9,160 +9,159 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="AnchorPane" prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.PagarController">
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1240.0" stylesheets="@../../../StylesCSS/Style_Pagar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pooespol.proyecto_2p_poo.PagarController">
    <children>
-      <HBox alignment="BOTTOM_LEFT" prefHeight="128.0" prefWidth="1240.0">
+      <VBox id="AnchorPane" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="595.0">
          <children>
-            <Label text="Pago">
-               <padding>
-                  <Insets left="60.0" />
-               </padding></Label>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="1240.0">
-         <children>
-            <RadioButton fx:id="rbEfectivo" mnemonicParsing="false" onAction="#pagarEfectivo" text="Efectivo">
-               <toggleGroup>
-                  <ToggleGroup fx:id="metodoPago" />
-               </toggleGroup>
-               <padding>
-                  <Insets left="60.0" />
-               </padding>
-            </RadioButton>
-            <RadioButton fx:id="rbTarjeta" mnemonicParsing="false" onAction="#pagarTarjeta" text="Tarjeta de Crédito" toggleGroup="$metodoPago">
-               <HBox.margin>
-                  <Insets left="60.0" />
-               </HBox.margin></RadioButton>
-         </children>
-      </HBox>
-      <VBox prefHeight="212.0" prefWidth="600.0">
-         <children>
-            <Label text="Detalle de pago">
-               <padding>
-                  <Insets left="60.0" />
-               </padding>
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font></Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="325.0" prefWidth="595.0">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
+                  <Label alignment="BOTTOM_CENTER" prefHeight="96.0" prefWidth="500.0" text="Detalle de Pago" textFill="WHITE">
+                     <font>
+                        <Font name="Bogart Trial Bold" size="27.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="500.0" style="-fx-background-color: #4D846B;">
                      <children>
-                        <Label text="Valor a pagar:">
-                           <padding>
-                              <Insets left="60.0" />
-                           </padding>
-                        </Label>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="173.0" text="Valor a pagar:" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbTotal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="173.0" text="Adicional tarjeta:" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbAdTarjeta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="173.0" text="IVA:" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbIva" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="444.0">
+                           <children>
+                              <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="173.0" text="Total a pagar:" textFill="WHITE">
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbTotalFinal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: white;">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="DM Sans Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
-                     <children>
-                        <Label fx:id="lbTotal" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></Label>
-                     </children>
-                  </VBox>
-               </children></HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
+               </children>
+            </VBox>
+            <VBox fx:id="VBoxContenido" alignment="CENTER_RIGHT" prefHeight="281.0" prefWidth="595.0" />
+            <VBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="595.0">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="184.0" text="Adicional tarjeta:">
-                           <padding>
-                              <Insets left="60.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
-                     <children>
-                        <Label fx:id="lbAdTarjeta" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></Label>
-                     </children>
-                  </VBox>
-               </children></HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
-               <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
-                     <children>
-                        <Label text="IVA:">
-                           <padding>
-                              <Insets left="60.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
-                     <children>
-                        <Label fx:id="lbIva" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></Label>
-                     </children>
-                  </VBox>
-               </children></HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
-               <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="240.0">
-                     <children>
-                        <Label text="Total a pagar:">
-                           <padding>
-                              <Insets left="60.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="285.0">
-                     <children>
-                        <Label fx:id="lbTotalFinal" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: white;">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></Label>
-                     </children>
-                  </VBox>
-               </children></HBox>
+                  <Label fx:id="lbEfectivo" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="500.0" text="Acércate a Caja para pagar tu pedido!" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Bogart Trial Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="584.0">
          <children>
-            <HBox prefHeight="158.0" prefWidth="1114.0">
+            <VBox prefHeight="203.0" prefWidth="584.0" />
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0" prefWidth="498.0" spacing="25.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="102.0" prefWidth="634.0">
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: #4D846B;">
                      <children>
-                        <Label fx:id="lbEfectivo">
-                           <VBox.margin>
-                              <Insets top="25.0" />
-                           </VBox.margin>
+                        <RadioButton fx:id="rbEfectivo" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pagarEfectivo" prefHeight="39.0" prefWidth="115.0" text=" Efectivo" textAlignment="CENTER" textFill="WHITE">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="metodoPago" />
+                           </toggleGroup>
                            <font>
-                              <Font name="Arial Bold" size="16.0" />
+                              <Font name="DM Sans Regular" size="19.0" />
                            </font>
-                        </Label>
+                        </RadioButton>
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
                   </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: #4D846B;">
+                     <children>
+                        <RadioButton fx:id="rbTarjeta" mnemonicParsing="false" onAction="#pagarTarjeta" prefHeight="44.0" prefWidth="214.0" text=" Tarjeta de Crédito" textFill="WHITE" toggleGroup="$metodoPago">
+                           <font>
+                              <Font name="DM Sans Regular" size="20.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="581.0" spacing="25.0">
+               <children>
+                  <Button fx:id="btnConf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generarOrden" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Confirmar" textFill="#366952">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Avenir Next Bold" size="28.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCancel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="175.0" style="-fx-background-color: white;" text="Cancelar" textFill="#366952">
+                     <font>
+                        <Font name="Avenir Next Bold" size="28.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="1240.0" spacing="40.0">
-         <children>
-            <Button fx:id="btnConf" mnemonicParsing="false" onAction="#generarOrden" text="Confirmar">
-               <HBox.margin>
-                  <Insets left="400.0" />
-               </HBox.margin></Button>
-            <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancelar" />
-         </children>
-      </HBox>
    </children>
-</VBox>
+</HBox>

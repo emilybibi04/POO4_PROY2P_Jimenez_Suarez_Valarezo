@@ -1,0 +1,5 @@
+
+.root{
+    -fx-background-image: url("/Pictures/Background_Pagar.png");
+    -fx-background-size:cover;
+}

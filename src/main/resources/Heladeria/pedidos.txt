@@ -1,1 +1,5 @@
 IDpedido,nombreCliente,total
+4329,PATRICIA,5.0
+4891,P,6.0
+9091,P,7.0
+5817,P,6.0

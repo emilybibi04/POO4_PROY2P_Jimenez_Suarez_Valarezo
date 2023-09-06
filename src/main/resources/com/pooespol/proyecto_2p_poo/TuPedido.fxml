@@ -41,11 +41,11 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="1173.0" spacing="45.0">
+      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="1155.0" spacing="20.0">
          <children>
             <Label fx:id="lbMsg" alignment="BOTTOM_CENTER" prefHeight="59.0" prefWidth="620.0" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="40.0" />
+                  <Insets right="41.0" />
                </HBox.margin>
                <font>
                   <Font name="Avenir Next Bold" size="30.0" />
