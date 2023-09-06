@@ -6,3 +6,5 @@ IDpedido,nombreCliente,total
 6726,P,8.0
 2227,P,6.3
 8320,P,7.8
+1910,P,8.0
+4489,P,5.5

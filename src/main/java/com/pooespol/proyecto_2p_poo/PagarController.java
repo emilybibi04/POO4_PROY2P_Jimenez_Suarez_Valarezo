@@ -21,8 +21,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -64,6 +66,9 @@ public class PagarController implements Initializable {
     
     @FXML 
     Label lbEfectivo;
+    
+    @FXML
+    VBox VBoxContenido;
     
     /**
      * Inicializa el controlador cuando se carga la vista correspondiente.
@@ -177,7 +182,67 @@ public class PagarController implements Initializable {
                 App.pgenerados.add(part[2]+", "+part[1]);
             }
         
-            App.setRoot("PedidoGenerado"); 
+            App.setRoot("PedidoGenerado");
+            
+            Label nomTarjeta = new Label("Datos de la Tarjeta");
+            nomTarjeta.setStyle("-fx-font-family: Bogart Trial; -fx-font-weight: Bold");
+            nomTarjeta.setPrefWidth(500);
+
+            VBox vTarjeta = new VBox();
+            vTarjeta.setPrefWidth(500);
+            vTarjeta.setPrefHeight(241);
+            vTarjeta.setStyle("-fx-background-color:  #4D846B");
+
+            HBox uno = new HBox();
+            uno.setPrefWidth(444);
+            uno.setPrefHeight(44);
+            Label unoL = new Label("Nombre:");
+            unoL.setPrefWidth(173);
+            unoL.setPrefHeight(26);
+            unoL.setAlignment(Pos.CENTER_LEFT);
+            TextField unoF = new TextField();
+            unoF.setPrefWidth(270);
+            unoF.setPrefHeight(30);
+            uno.getChildren().addAll(unoL, unoF);
+
+            HBox dos = new HBox();
+            dos.setPrefWidth(444);
+            dos.setPrefHeight(44);
+            Label dosL = new Label("Número:");
+            dosL.setPrefWidth(173);
+            dosL.setPrefHeight(26);
+            dosL.setAlignment(Pos.CENTER_LEFT);
+            TextField dosF = new TextField();
+            dosF.setPrefWidth(270);
+            dosF.setPrefHeight(30);
+            dos.getChildren().addAll(dosL, dosF);
+
+            HBox tres = new HBox();
+            tres.setPrefWidth(444);
+            tres.setPrefHeight(44);
+            Label tresL = new Label("Fecha Caducidad:");
+            tresL.setPrefWidth(173);
+            tresL.setPrefHeight(26);
+            tresL.setAlignment(Pos.CENTER_LEFT);
+            DatePicker tresF = new DatePicker();
+            tresF.setPrefWidth(270);
+            tresF.setPrefHeight(30);
+            tres.getChildren().addAll(tresL, tresF);
+
+            HBox cuatro = new HBox();
+            cuatro.setPrefWidth(444);
+            cuatro.setPrefHeight(44);
+            Label cuatroL = new Label("CVV:");
+            cuatroL.setPrefWidth(173);
+            cuatroL.setPrefHeight(26);
+            cuatroL.setAlignment(Pos.CENTER_LEFT);
+            TextField cuatroF = new TextField();
+            cuatroF.setPrefWidth(270);
+            cuatroF.setPrefHeight(30);
+            cuatro.getChildren().addAll(cuatroL, cuatroF);
+            
+            vTarjeta.getChildren().addAll(uno, dos, tres, cuatro);
+            VBoxContenido.getChildren().addAll(vTarjeta);
         }
     }
     
